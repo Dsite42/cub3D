@@ -6,7 +6,7 @@
 #    By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/18 15:39:27 by cgodecke          #+#    #+#              #
-#    Updated: 2023/08/15 10:26:41 by cgodecke         ###   ########.fr        #
+#    Updated: 2023/08/15 10:32:27 by cgodecke         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ clean:
 	rm -r -f obj/
 
 fclean: clean
-	make fclean -C libft
+	make fclean -C src/libft
 	rm -f $(NAME)
 
 re: fclean all
