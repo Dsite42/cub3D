@@ -6,7 +6,7 @@
 #    By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/18 15:39:27 by cgodecke          #+#    #+#              #
-#    Updated: 2023/08/15 10:30:34 by cgodecke         ###   ########.fr        #
+#    Updated: 2023/08/15 11:07:50 by cgodecke         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,13 @@ HEADER := src/cub3D.h
 LIBFTDIR := src/libft
 LIBFT := libft.a
 INFILES = 	src/main.c\
+				src/raycaster/render_image.c\
+				src/raycaster/draw_line.c\
+				src/raycaster/degree_to_radians.c\
+					src/mlx/handle_keypress.c\
+					src/mlx/start_mlx.c\
+					src/mlx/window_close.c\
+					src/mlx/img_pix_put.c\
 
 OBJFILES = $(INFILES:%.c=$(OBJDIR)/%.o)
 
@@ -37,6 +44,8 @@ $(OBJDIR)/%.o: %.c
 setup:
 	@mkdir -p $(OBJDIR)
 	@mkdir -p $(OBJDIR)/src
+	@mkdir -p $(OBJDIR)/src/raycaster
+	@mkdir -p $(OBJDIR)/src/mlx
 
 clean:
 	make clean -C src/libft 

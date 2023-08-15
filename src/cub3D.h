@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:30:40 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/15 09:30:45 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/08/15 11:06:08 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include "minilibx-linux/mlx.h"
+
+# define MLX_ERROR 30
+# define BlUE_PIXEL 0x0000FF
+# define RED_PIXEL 0xFF0000
+# define BLACK_PIXEL 0x000000
 
 typedef struct s_img
 {
@@ -61,5 +66,16 @@ typedef struct s_data
 	double	ray_precision;
 
 }	t_data;
+
+// mlx
+int		window_close(t_data *data);
+int		start_mlx(t_data *data);
+int		handle_keypress(int keysym, t_data *data);
+void	img_pix_put(t_img *img, int x, int y, int color);
+
+// raycaster
+int		render_image(t_data *data);
+void	draw_line(t_data *data, int raycount, int y0, int y1, int raycolor);
+double	degree_to_radians(double degree);
 
 #endif
