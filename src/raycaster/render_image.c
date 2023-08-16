@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 10:47:18 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/15 11:11:57 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/08/16 09:14:13 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ static void	render_rays(t_data *data)
 
         while (wall == 0)
 		{
-            ray_x += cos(degree_to_radians(data->ray_angle)) / data->ray_precision;
-            ray_y -= sin(degree_to_radians(data->ray_angle)) / data->ray_precision;
-			//printf("degree_to_radians(data->ray_angle): %f\n", sin(degree_to_radians(data->ray_angle)));
+            ray_x += cos(deg_to_rad(data->ray_angle)) / data->ray_precision;
+            ray_y -= sin(deg_to_rad(data->ray_angle)) / data->ray_precision;
+			//printf("deg_to_rad(data->ray_angle): %f\n", sin(deg_to_rad(data->ray_angle)));
             wall = map[(int)(floor(ray_y))][(int)(floor(ray_x))];
 			//if (wall != 0)
 			//{
@@ -70,7 +70,7 @@ static void	render_rays(t_data *data)
         }
 		// Calculate distance to wall
 		double distance = sqrt(pow(data->player_x - ray_x, 2) + pow(data->player_y - ray_y, 2));
-		distance *= cos(degree_to_radians(data->ray_angle - data->player_angle));
+		distance *= cos(deg_to_rad(data->ray_angle - data->player_angle));
 		int wall_height = floor(data->win_height / distance);
 		//Draw ray
 		//printf("ray_count: %d, winn_half_height: %d, wall_height: %d\n", ray_count, data->win_half_height, wall_height);

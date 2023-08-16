@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   degree_to_radians.c                                :+:      :+:    :+:   */
+/*   deg_to_rad.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 11:04:14 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/15 11:05:52 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/08/15 11:26:08 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3D.h"
 
-double	degree_to_radians(double degree)
+double	deg_to_rad(double degree)
 {
-	double	pi;
-
-	pi = 3.14159265359;
-	pi = M_PI;
-	return (degree * pi / 180);
+	return (degree * M_PI / 180);
 }

@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:29:03 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/15 11:16:14 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/08/15 11:40:38 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,16 @@
 
 void	zero_struct_data(t_data *data)
 {
+	// mlx
 	data->mlx_ptr = NULL;
 	data->win_ptr = NULL;
 	data->img = (t_img){NULL, NULL, 0, 0, 0};
 	data->cur_img = 0;
 
+	// map
+	data->map_rows = 10;
+	data->map_columns = 10;
+	
 	//raycaster
 	data->win_width = 640;
 	data->win_height = 480;

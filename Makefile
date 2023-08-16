@@ -6,7 +6,7 @@
 #    By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/18 15:39:27 by cgodecke          #+#    #+#              #
-#    Updated: 2023/08/15 11:07:50 by cgodecke         ###   ########.fr        #
+#    Updated: 2023/08/16 09:14:04 by cgodecke         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ LIBFT := libft.a
 INFILES = 	src/main.c\
 				src/raycaster/render_image.c\
 				src/raycaster/draw_line.c\
-				src/raycaster/degree_to_radians.c\
+				src/raycaster/deg_to_rad.c\
 					src/mlx/handle_keypress.c\
 					src/mlx/start_mlx.c\
 					src/mlx/window_close.c\

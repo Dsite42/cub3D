@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:30:40 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/15 11:06:08 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/08/16 09:13:57 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef struct s_data
 	int		cur_img;
 
 	//map
-	int		map_colunms;
+	int		map_columns;
 	int		map_rows;
 	int		win_width;
 	int		win_height;
@@ -76,6 +76,6 @@ void	img_pix_put(t_img *img, int x, int y, int color);
 // raycaster
 int		render_image(t_data *data);
 void	draw_line(t_data *data, int raycount, int y0, int y1, int raycolor);
-double	degree_to_radians(double degree);
+double	deg_to_rad(double degree);
 
 #endif
