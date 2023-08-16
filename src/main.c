@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:29:03 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/15 11:40:38 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/08/16 18:16:57 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,18 @@ void	zero_struct_data(t_data *data)
 	data->map_columns = 10;
 	
 	//raycaster
-	data->win_width = 640;
-	data->win_height = 480;
+	data->win_width = 1280;
+	data->win_height = 860;
 	data->win_half_width = data->win_width / 2;
 	data->win_half_height = data->win_height / 2;
 	data->FOV = 60;
 	data->half_FOV = data->FOV / 2;
-	data->player_x = 3.50;
-	data->player_y = 8.50;
+	data->player_x = 7.50;
+	data->player_y = 2.50;
 	data->player_angle = 45;
 	data->ray_angle = 0;
 	data->ray_increment_angle = data->FOV / data->win_width;
-	data->ray_precision = 128;
+	data->ray_precision = 256;
 }
 
 int	main(int argc, char **argv)

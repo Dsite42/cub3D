@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:30:40 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/16 09:13:57 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/08/16 16:24:17 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,14 @@
 # define BlUE_PIXEL 0x0000FF
 # define RED_PIXEL 0xFF0000
 # define BLACK_PIXEL 0x000000
+# define GREEN_PIXEL 3110932
+
+# define SOUTH 16764424
+# define EAST 581375
+# define NORTH 3148994
+# define WEST 15437613
+
+
 
 typedef struct s_img
 {
@@ -64,6 +72,7 @@ typedef struct s_data
 	double	ray_angle;
 	double	ray_increment_angle;
 	double	ray_precision;
+	int		color;
 
 }	t_data;
 

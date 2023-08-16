@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 10:45:15 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/16 10:04:23 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/08/16 15:38:56 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,21 @@ int	handle_keypress(int keysym, t_data *data)
 	if (keysym == XK_Escape)
 		window_close(data);
 	else if (keysym == XK_a)
-		data->player_angle += 5;
+	{
+		data->player_angle = ((int)(data->player_angle + 5) % 360);
+		printf("data->player_angle: %f\n", data->player_angle);
+	}
 	else if (keysym == XK_d)
-		data->player_angle -= 5;
+	{
+		data->player_angle = ((int)(data->player_angle - 5) % 360);
+		if (data->player_angle < 0)
+			data->player_angle += 360;
+		//printf("data->player_angle: %f\n", data->player_angle);
+	}
 	else if (keysym == XK_w)
 	{
 		press_w(data, step_factor);
-		printf("data->player_x: %f data->player_y: %f\n", data->player_x, data->player_y);
+		//printf("data->player_x: %f data->player_y: %f\n", data->player_x, data->player_y);
 	}
 	else if (keysym == XK_s)
 	{
