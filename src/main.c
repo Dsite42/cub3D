@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:29:03 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/17 10:13:11 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/08/17 13:37:34 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	zero_struct_data(t_data *data)
 	data->player_angle = 45;
 	data->ray_angle = 0;
 	data->ray_increment_angle = data->FOV / data->win_width;
-	data->ray_precision = 256;
+	data->ray_precision = 512;
 	data->sky_direction = RED_PIXEL;
 	data->prev_sky_direction = RED_PIXEL;
 	data->prev_prev_sky_direction = RED_PIXEL;

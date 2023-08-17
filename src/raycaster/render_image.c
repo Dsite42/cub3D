@@ -6,13 +6,13 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 10:47:18 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/17 10:24:38 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/08/17 14:40:10 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3D.h"
 
-int map[10][10] = {
+int map[10][20] = {
     {1,1,1,1,1,1,1,1,1,1},
     {1,0,0,0,0,0,0,0,0,1},
     {1,0,0,0,0,0,0,0,0,1},
@@ -24,7 +24,6 @@ int map[10][10] = {
     {1,0,0,0,0,0,0,0,0,1},
     {1,1,1,1,1,1,1,1,1,1},
 };
-
 
 static void	render_background(t_data *data, t_img *img, int color)
 {
@@ -43,16 +42,11 @@ static void	render_background(t_data *data, t_img *img, int color)
 	}
 }
 
-static char	sky_direction(t_data *data, double ray_x, double ray_y)
+static void	sky_direction(t_data *data, double ray_x, double ray_y)
 {
-	int	row_before;
-	int	col_before;
-	double ray_precision = data->ray_precision;
-	double tmp_ray_angle = data->ray_angle;
 	double px;
 	double py;
 
-		//printf("ray_angle: %f\n", data->ray_angle);
 	if ((int)data->ray_angle >= 0 && (int)data->ray_angle < 90)
 	{
 		px = (floor(ray_x + 1) - ray_x) / cos(deg_to_rad(data->ray_angle));
@@ -89,59 +83,26 @@ static char	sky_direction(t_data *data, double ray_x, double ray_y)
 		else
 			data->sky_direction = SOUTH;
 	}
-
-	else
-		data->sky_direction = RED_PIXEL;
-	//if (old_color != data->color)
-	//	printf("ray_angle: %f, color: %d ray_x: %f, ray_y: %f\n", data->ray_angle, data->color, ray_x, ray_y);
-	//old_color = data->color;
 }
 
-/*static char	sky_direction(t_data *data, double ray_x, double ray_y)
+static void check_sky_direction(t_data *data, int ray_count, int wall_height)
 {
-	int	row_before;
-	int	col_before;
-	double ray_precision = data->ray_precision;
-	double tmp_ray_angle = data->ray_angle;
-
-	row_before = floor(ray_y);
-	col_before = floor(ray_x);
-	//wall = map[(int)(floor(ray_y))][(int)(floor(ray_x))];
-	if ((int)data->ray_angle%360 >= 90 && (int)data->ray_angle%360 < 270)
-	{
-		while (((int)(floor(ray_y - sin(deg_to_rad(tmp_ray_angle)) / ray_precision)) < (int)(floor(ray_y)))
-		&& ((int)(floor(ray_x + cos(deg_to_rad(tmp_ray_angle)) / ray_precision)) < (int)(floor(ray_x))))
+		if (data->prev_prev_sky_direction != RED_PIXEL
+			&& data->prev_prev_sky_direction == data->sky_direction
+			&& data->prev_sky_direction != data->sky_direction)
 		{
-			//printf("ray_precision: %f\n", ray_precision);
-			//ray_precision += 100;
-			tmp_ray_angle += data->ray_increment_angle;
+			draw_line(data, ray_count - 1, 0, data->win_half_height
+				- wall_height / 2, data->sky_direction);
+			data->prev_sky_direction = data->sky_direction;
 		}
-
-	}
-	else
-	{
-		while (((int)(floor(ray_y - sin(deg_to_rad(tmp_ray_angle)) / ray_precision)) < (int)(floor(ray_y)))
-		&& ((int)(floor(ray_x + cos(deg_to_rad(tmp_ray_angle)) / ray_precision)) > (int)(floor(ray_x))))
+		if (data->prev_sky_direction == RED_PIXEL)
+			data->prev_sky_direction = data->sky_direction;
+		else
 		{
-			//printf("ray_precision: %f\n", ray_precision);
-			//ray_precision += 100;
-			tmp_ray_angle -= data->ray_increment_angle;
+			data->prev_prev_sky_direction = data->prev_sky_direction;
+			data->prev_sky_direction = data->sky_direction;
 		}
-	}
-
-	if (((int)(floor(ray_y - sin(deg_to_rad(tmp_ray_angle)) / ray_precision)) < (int)(floor(ray_y))))
-	//if (data->ray_angle > 0 && data->ray_angle < 180)
-		data->color = 539923;
-	//else if (data->ray_angle > 180 && data->ray_angle < 360)
-	//{
-	//	
-	//}
-
-	else
-		data->color = BlUE_PIXEL;
-
 }
-*/
 
 static void	render_rays(t_data *data)
 {
@@ -174,18 +135,7 @@ static void	render_rays(t_data *data)
 			}
         }
 		sky_direction(data, ray_x_before, ray_y_before);
-		if (data->prev_prev_sky_direction != RED_PIXEL && data->prev_prev_sky_direction == data->sky_direction && data->prev_sky_direction != data->sky_direction)
-		{
-			draw_line(data, ray_count - 1, 0, data->win_half_height - wall_height / 2, data->sky_direction);
-			data->prev_sky_direction = data->sky_direction;
-		}
-		if (data->prev_sky_direction == RED_PIXEL)
-			data->prev_sky_direction = data->sky_direction;
-		else
-		{
-			data->prev_prev_sky_direction = data->prev_sky_direction;
-			data->prev_sky_direction = data->sky_direction;
-		}
+		check_sky_direction(data, ray_count, wall_height);
 		//printf("old_old_color: %d, old_color: %d, data->color: %d\n", old_old_color, old_color, data->color);
 		// Calculate distance to wall
 		double distance = sqrt(pow(data->player_x - ray_x, 2) + pow(data->player_y - ray_y, 2));
