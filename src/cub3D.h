@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:30:40 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/17 14:55:40 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/08/17 17:11:28 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,7 @@ void	img_pix_put(t_img *img, int x, int y, int color);
 int		render_image(t_data *data);
 void	draw_line(t_data *data, int raycount, int y0, int y1, int raycolor);
 double	deg_to_rad(double degree);
+void	sky_direction(t_data *data, double ray_x, double ray_y);
+void	check_sky_direction(t_data *data, int ray_count, int wall_height);
 
 #endif

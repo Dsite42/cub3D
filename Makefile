@@ -6,7 +6,7 @@
 #    By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/18 15:39:27 by cgodecke          #+#    #+#              #
-#    Updated: 2023/08/17 12:26:39 by cgodecke         ###   ########.fr        #
+#    Updated: 2023/08/17 17:11:54 by cgodecke         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ INFILES = 	src/main.c\
 				src/raycaster/render_image.c\
 				src/raycaster/draw_line.c\
 				src/raycaster/deg_to_rad.c\
+				src/raycaster/sky.c\
 					src/mlx/handle_keypress.c\
 					src/mlx/start_mlx.c\
 					src/mlx/window_close.c\

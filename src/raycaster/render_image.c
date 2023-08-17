@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 10:47:18 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/17 15:05:50 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/08/17 17:15:18 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ int	bitmap [8][8] = {
                 {0,1,0,0,0,1,0,0}
             };
 
-
-
 static void	render_background(t_data *data, t_img *img, int color)
 {
 	int	i;
@@ -53,68 +51,6 @@ static void	render_background(t_data *data, t_img *img, int color)
 		}
 		++i;
 	}
-}
-
-static void	sky_direction(t_data *data, double ray_x, double ray_y)
-{
-	double px;
-	double py;
-
-	if ((int)data->ray_angle >= 0 && (int)data->ray_angle < 90)
-	{
-		px = (floor(ray_x + 1) - ray_x) / cos(deg_to_rad(data->ray_angle));
-		py = (ray_y - floor(ray_y)) / sin(deg_to_rad(data->ray_angle));
-		if (px < py)
-			data->sky_direction = EAST;
-		else
-			data->sky_direction = NORTH;
-	}
-	else if ((int)data->ray_angle >= 90 && (int)data->ray_angle < 180)
-	{
-		px = (ray_x - floor(ray_x)) / cos(deg_to_rad(180 - data->ray_angle));
-		py = (ray_y - floor(ray_y)) / sin(deg_to_rad(180 - data->ray_angle));
-		if (px < py)
-			data->sky_direction = WEST;
-		else
-			data->sky_direction = NORTH;
-	}
-	else if ((int)data->ray_angle >= 180 && (int)data->ray_angle < 270)
-	{
-		px = (ray_x - floor(ray_x)) / cos(deg_to_rad(data->ray_angle - 180));
-		py = (floor(ray_y + 1) - ray_y) / sin(deg_to_rad(data->ray_angle - 180));
-		if (px < py)
-			data->sky_direction = WEST;
-		else
-			data->sky_direction = SOUTH;
-	}
-	else if ((int)data->ray_angle >= 270 && (int)data->ray_angle < 360)
-	{
-		px = (floor(ray_x + 1) - ray_x) / cos(deg_to_rad(360 - data->ray_angle));
-		py = (floor(ray_y + 1) - ray_y) / sin(deg_to_rad(360 - data->ray_angle));
-		if (px < py)
-			data->sky_direction = EAST;
-		else
-			data->sky_direction = SOUTH;
-	}
-}
-
-static void check_sky_direction(t_data *data, int ray_count, int wall_height)
-{
-		if (data->prev_prev_sky_direction != RED_PIXEL
-			&& data->prev_prev_sky_direction == data->sky_direction
-			&& data->prev_sky_direction != data->sky_direction)
-		{
-			draw_line(data, ray_count - 1, 0, data->win_half_height
-				- wall_height / 2, data->sky_direction);
-			data->prev_sky_direction = data->sky_direction;
-		}
-		if (data->prev_sky_direction == RED_PIXEL)
-			data->prev_sky_direction = data->sky_direction;
-		else
-		{
-			data->prev_prev_sky_direction = data->prev_sky_direction;
-			data->prev_sky_direction = data->sky_direction;
-		}
 }
 
 static void	render_rays(t_data *data)
