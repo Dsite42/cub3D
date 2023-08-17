@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:29:03 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/17 13:37:34 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/08/17 15:05:14 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,17 @@ void	zero_struct_data(t_data *data)
 	data->sky_direction = RED_PIXEL;
 	data->prev_sky_direction = RED_PIXEL;
 	data->prev_prev_sky_direction = RED_PIXEL;
-}
 
+	// texture
+	data->texture.width = 8;
+	data->texture.height = 8;
+	data->texture.color0 = 0x000000;
+	data->texture.color1 = 0xFFFFFF;
+}
 int	main(int argc, char **argv)
 {
 	t_data	data;
+	t_texture texture;
 
 	argv = NULL;
 

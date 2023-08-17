@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:30:40 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/17 14:39:58 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/08/17 14:55:40 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,16 @@
 # define EAST 581375
 # define NORTH 3148994
 # define WEST 15437613
+
+typedef struct s_texture
+{
+	int width;
+	int height;
+	int bitmap[8][8];
+	int color0;
+	int color1;
+
+}	t_texture;
 
 typedef struct s_img
 {
@@ -73,6 +83,7 @@ typedef struct s_data
 	int		sky_direction;
 	int		prev_sky_direction;
 	int		prev_prev_sky_direction;
+	t_texture texture;
 }	t_data;
 
 // mlx
