@@ -6,14 +6,11 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 10:47:18 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/16 19:10:06 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/08/17 10:24:38 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3D.h"
-
-int old_old_color = RED_PIXEL;
-int old_color = RED_PIXEL;
 
 int map[10][10] = {
     {1,1,1,1,1,1,1,1,1,1},
@@ -61,40 +58,40 @@ static char	sky_direction(t_data *data, double ray_x, double ray_y)
 		px = (floor(ray_x + 1) - ray_x) / cos(deg_to_rad(data->ray_angle));
 		py = (ray_y - floor(ray_y)) / sin(deg_to_rad(data->ray_angle));
 		if (px < py)
-			data->color = EAST;
+			data->sky_direction = EAST;
 		else
-			data->color = NORTH;
+			data->sky_direction = NORTH;
 	}
 	else if ((int)data->ray_angle >= 90 && (int)data->ray_angle < 180)
 	{
 		px = (ray_x - floor(ray_x)) / cos(deg_to_rad(180 - data->ray_angle));
 		py = (ray_y - floor(ray_y)) / sin(deg_to_rad(180 - data->ray_angle));
 		if (px < py)
-			data->color = WEST;
+			data->sky_direction = WEST;
 		else
-			data->color = NORTH;
+			data->sky_direction = NORTH;
 	}
 	else if ((int)data->ray_angle >= 180 && (int)data->ray_angle < 270)
 	{
 		px = (ray_x - floor(ray_x)) / cos(deg_to_rad(data->ray_angle - 180));
 		py = (floor(ray_y + 1) - ray_y) / sin(deg_to_rad(data->ray_angle - 180));
 		if (px < py)
-			data->color = WEST;
+			data->sky_direction = WEST;
 		else
-			data->color = SOUTH;
+			data->sky_direction = SOUTH;
 	}
 	else if ((int)data->ray_angle >= 270 && (int)data->ray_angle < 360)
 	{
 		px = (floor(ray_x + 1) - ray_x) / cos(deg_to_rad(360 - data->ray_angle));
 		py = (floor(ray_y + 1) - ray_y) / sin(deg_to_rad(360 - data->ray_angle));
 		if (px < py)
-			data->color = EAST;
+			data->sky_direction = EAST;
 		else
-			data->color = SOUTH;
+			data->sky_direction = SOUTH;
 	}
 
 	else
-		data->color = RED_PIXEL;
+		data->sky_direction = RED_PIXEL;
 	//if (old_color != data->color)
 	//	printf("ray_angle: %f, color: %d ray_x: %f, ray_y: %f\n", data->ray_angle, data->color, ray_x, ray_y);
 	//old_color = data->color;
@@ -177,14 +174,17 @@ static void	render_rays(t_data *data)
 			}
         }
 		sky_direction(data, ray_x_before, ray_y_before);
-		if (old_old_color != RED_PIXEL && old_old_color == data->color && old_color != data->color)
-			draw_line(data, ray_count - 1, 0, data->win_half_height - wall_height / 2, data->color);
-		if (old_color == RED_PIXEL)
-			old_color = data->color;
+		if (data->prev_prev_sky_direction != RED_PIXEL && data->prev_prev_sky_direction == data->sky_direction && data->prev_sky_direction != data->sky_direction)
+		{
+			draw_line(data, ray_count - 1, 0, data->win_half_height - wall_height / 2, data->sky_direction);
+			data->prev_sky_direction = data->sky_direction;
+		}
+		if (data->prev_sky_direction == RED_PIXEL)
+			data->prev_sky_direction = data->sky_direction;
 		else
 		{
-			old_old_color = old_color;
-			old_color = data->color;
+			data->prev_prev_sky_direction = data->prev_sky_direction;
+			data->prev_sky_direction = data->sky_direction;
 		}
 		//printf("old_old_color: %d, old_color: %d, data->color: %d\n", old_old_color, old_color, data->color);
 		// Calculate distance to wall
@@ -193,7 +193,7 @@ static void	render_rays(t_data *data)
 		wall_height = floor(data->win_height / distance);
 		//Draw ray
 		//printf("ray_count: %d, winn_half_height: %d, wall_height: %d\n", ray_count, data->win_half_height, wall_height);
-		draw_line(data, ray_count, 0, data->win_half_height - wall_height / 2, data->color);
+		draw_line(data, ray_count, 0, data->win_half_height - wall_height / 2, data->sky_direction);
 		draw_line(data, ray_count, data->win_half_height + wall_height / 2, data->win_height, GREEN_PIXEL);
 		data->ray_angle = (data->ray_angle - data->ray_increment_angle);
 		if (data->ray_angle < 0)

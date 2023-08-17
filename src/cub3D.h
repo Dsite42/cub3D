@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:30:40 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/16 16:24:17 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/08/17 10:01:31 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,9 @@ typedef struct s_data
 	double	ray_angle;
 	double	ray_increment_angle;
 	double	ray_precision;
-	int		color;
-
+	int		sky_direction;
+	int		prev_sky_direction;
+	int		prev_prev_sky_direction;
 }	t_data;
 
 // mlx
