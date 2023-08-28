@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:30:40 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/28 13:45:56 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/08/28 14:32:19 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ typedef struct s_data
 	//mlx
 	void	*mlx_ptr;
 	void	*win_ptr;
-	t_img	img;
+	t_img	main_img;
+	t_img	north_img;
 	int		cur_img;
 
 	//map
@@ -68,8 +69,8 @@ typedef struct s_data
 	int		map_rows;
 	int		win_width;
 	int		win_height;
-	int img_width;       // Image width
-    int img_height;      // Image height
+	int north_img_width;       // Image width
+    int north_img_height;      // Image height
 
 
 	//raycaster
