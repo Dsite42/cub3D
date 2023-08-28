@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:29:03 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/17 15:05:14 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/08/28 14:14:03 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	zero_struct_data(t_data *data)
 	
 	//raycaster
 	data->win_width = 1280;
-	data->win_height = 860;
+	data->win_height = 960;
 	data->win_half_width = data->win_width / 2;
 	data->win_half_height = data->win_height / 2;
 	data->FOV = 60;
@@ -61,6 +61,7 @@ int	main(int argc, char **argv)
 	}
 	zero_struct_data(&data);
 	start_mlx(&data);
+	//exit(0);
 	mlx_loop_hook(data.mlx_ptr, &render_image, &data);
 	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, &handle_keypress, &data);
 	mlx_hook(data.win_ptr, DestroyNotify,

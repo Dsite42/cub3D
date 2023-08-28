@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:30:40 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/17 17:11:28 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/08/28 13:45:56 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,9 @@ typedef struct s_data
 	int		map_rows;
 	int		win_width;
 	int		win_height;
+	int img_width;       // Image width
+    int img_height;      // Image height
+
 
 	//raycaster
 	int		win_half_width;
