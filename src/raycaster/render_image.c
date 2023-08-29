@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 10:47:18 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/28 17:26:43 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/08/29 13:31:36 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,55 +25,45 @@ int map[10][20] = {
     {1,1,1,1,1,1,1,1,1,1},
 };
 
-int	bitmap [8][8] = {
-                {1,1,1,1,1,1,1,1},
-                {0,0,0,1,0,0,0,1},
-                {1,1,1,1,1,1,1,1},
-                {0,1,0,0,0,1,0,0},
-                {1,1,1,1,1,1,1,1},
-                {0,0,0,1,0,0,0,1},
-                {1,1,1,1,1,1,1,1},
-                {0,1,0,0,0,1,0,0}
-            };
-
 void draw_texture(t_data *data, int ray_count, int y0, int y1, t_img img, double ray_x_before, double ray_y_before, int wall_height)
 {
-	int		i = 0;
-	int end = y1-y0;
-	int		j;
+	int		img_row;
 	int		x;
 	int		y;
 	int		color;
 
-	if (data->sky_direction == NORTH)
+	img_row = 0;
+	if (data->sky_direction == NORTH || data->sky_direction == SOUTH)
 	{
 		while (y0 < y1)
 		{
-			x = (int)((ray_x_before - floor(ray_x_before)) * data->north_img_width);
-			y = (int)(i * data->north_img_height / wall_height);
-			//printf("y0wall_height:%d\n", (y0%data->north_img_height));
-			//exit(0);
-			color = *(int *)(data->north_img.addr + (y * data->north_img.line_len + x * (data->north_img.bpp / 8)));
+			x = (int)((ray_x_before - floor(ray_x_before))
+					* data->north_img_width);
+			y = (int)(img_row * data->north_img_height / wall_height);
+			color = *(int *)(data->north_img.addr + (y
+						* data->north_img.line_len + x 
+						* (data->north_img.bpp / 8)));
 			img_pix_put(&data->main_img, ray_count, y0, color);
 			y0++;
-			i++;
+			img_row++;
 		}
-
 	}
 	else
 	{
 		while (y0 < y1)
 		{
-			x = (int)(ray_count * data->north_img_width / data->win_width);
-			y = (int)(y0 * data->north_img_height / data->win_height);
-			color = *(int *)(data->north_img.addr + (y * data->north_img.line_len + x * (data->north_img.bpp / 8)));
+			x = (int)((ray_y_before - floor(ray_y_before))
+					* data->north_img_width);
+			y = (int)(img_row * data->north_img_height / wall_height);
+			color = *(int *)(data->north_img.addr + (y
+						* data->north_img.line_len + x
+						* (data->north_img.bpp / 8)));
 			img_pix_put(&data->main_img, ray_count, y0, color);
 			y0++;
+			img_row++;
 		}
-
 	}
 }
-
 
 static void	render_background(t_data *data, t_img *img, int color)
 {
