@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 17:02:51 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/17 17:14:40 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/08/29 14:51:45 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	check_sky_direction(t_data *data, int ray_count, int wall_height)
 		&& data->prev_prev_sky_direction == data->sky_direction
 		&& data->prev_sky_direction != data->sky_direction)
 	{
-		draw_line(data, ray_count - 1, 0, data->win_half_height
+		draw_line(data, ray_count - 1, 0, (data->mlx.win_img.height / 2)
 			- wall_height / 2, data->sky_direction);
 		data->prev_sky_direction = data->sky_direction;
 	}

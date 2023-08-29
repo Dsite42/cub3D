@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:30:40 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/28 14:32:19 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/08/29 15:35:09 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,29 +53,39 @@ typedef struct s_img
 	int		bpp;
 	int		line_len;
 	int		endian;
+	int		width;
+	int		height;
 }	t_img;
 
-typedef struct s_data
+typedef struct s_mlx
 {
 	//mlx
 	void	*mlx_ptr;
 	void	*win_ptr;
-	t_img	main_img;
+	t_img	win_img;
 	t_img	north_img;
-	int		cur_img;
+	int		north_img_width;
+    int		north_img_height;
+	t_img	east_img;
+	int		east_img_width;
+	int		east_img_height;
+	t_img	south_img;
+	int		south_img_width;
+	int		south_img_height;
+	t_img	west_img;
+	int		west_img_width;
+	int		west_img_height;
+}	t_mlx;
 
+typedef struct s_data
+{
+	t_mlx	mlx;
 	//map
 	int		map_columns;
 	int		map_rows;
-	int		win_width;
-	int		win_height;
-	int north_img_width;       // Image width
-    int north_img_height;      // Image height
 
 
 	//raycaster
-	int		win_half_width;
-	int		win_half_height;
 	double 	FOV;
 	double 	half_FOV;
 	double 	player_x;
@@ -84,6 +94,10 @@ typedef struct s_data
 	double	ray_angle;
 	double	ray_increment_angle;
 	double	ray_precision;
+	double	ray_x;
+	double	ray_y;
+	int		ray_count;
+	int		wall_height;
 	int		sky_direction;
 	int		prev_sky_direction;
 	int		prev_prev_sky_direction;

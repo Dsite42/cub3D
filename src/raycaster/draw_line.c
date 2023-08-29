@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 10:59:41 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/28 14:31:21 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/08/29 14:26:23 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	draw_line(t_data *data, int raycount, int y0, int y1, int raycolor)
 {
 	while (y0 < y1)
 	{
-		img_pix_put(&data->main_img, raycount, y0, raycolor);
+		img_pix_put(&data->mlx.win_img, raycount, y0, raycolor);
 		y0++;
 	}
 }
