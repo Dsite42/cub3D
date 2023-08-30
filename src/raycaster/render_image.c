@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 10:47:18 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/30 08:55:35 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/08/30 10:44:07 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,9 +122,17 @@ static void	render_rays(t_data *data)
 		data->ray_y = data->player_y;
 
         while (wall == 0)
-		{
-            data->ray_x += cos(deg_to_rad(data->ray_angle)) / data->ray_precision;
-            data->ray_y -= sin(deg_to_rad(data->ray_angle)) / data->ray_precision;
+		{ 
+			if (fmin(data->ray_x - floor(data->ray_x), ceil(data->ray_x) - data->ray_x) > 1 / data->ray_precision && fmin(data->ray_y - floor(data->ray_y), ceil(data->ray_y) - data->ray_y) > 1 / data->ray_precision)
+			{
+            	data->ray_x += cos(deg_to_rad(data->ray_angle)) / data->ray_precision;
+            	data->ray_y -= sin(deg_to_rad(data->ray_angle)) / data->ray_precision;
+			}
+			else
+			{
+            	data->ray_x += cos(deg_to_rad(data->ray_angle)) / data->ray_precision_high;
+            	data->ray_y -= sin(deg_to_rad(data->ray_angle)) / data->ray_precision_high;
+			}
 			//printf("deg_to_rad(data->ray_angle): %f\n", sin(deg_to_rad(data->ray_angle)));
             wall = map[(int)(floor(data->ray_y))][(int)(floor(data->ray_x))];
 			if (wall == 0)
@@ -135,8 +143,9 @@ static void	render_rays(t_data *data)
 				//printf("ray_x: %f, ray_y: %f, wall: %d ray_angle: %f ray_count: %d\n", ray_x, ray_y, wall, data->ray_angle, ray_count);
 			}
         }
+		//printf("X: %f y: %f angle: %f\n", data->ray_x, data->ray_y, data->ray_angle);
 		sky_direction(data, ray_x_before, ray_y_before);
-		//check_sky_direction(data, data->ray_count, data->wall_height);
+		check_sky_direction(data, data->ray_count, data->wall_height);
 		//printf("old_old_color: %d, old_color: %d, data->color: %d\n", old_old_color, old_color, data->color);
 		// Calculate distance to wall
 		double distance = sqrt(pow(data->player_x - data->ray_x, 2) + pow(data->player_y - data->ray_y, 2));

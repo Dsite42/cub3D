@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:29:03 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/30 09:04:38 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/08/30 10:56:07 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ void	zero_struct_data(t_data *data)
 	data->mlx.win_img.height = 960;
 	data->FOV = 60;
 	data->half_FOV = data->FOV / 2;
-	data->player_x = 7.50;
-	data->player_y = 2.50;
-	data->player_angle = 330;
+	data->player_x = 1.999977;
+	data->player_y = 4.998063;
+	data->player_angle = 211.625000;
 	data->ray_angle = 0;
 	data->ray_increment_angle = data->FOV / data->mlx.win_img.width;
-	data->ray_precision = 64;
-	data->ray_precision_high = 64 * 160;
+	data->ray_precision = 64 * 2;
+	data->ray_precision_high = 64 * 160 * 2;
 	data->sky_direction = RED_PIXEL;
 	data->prev_sky_direction = RED_PIXEL;
 	data->prev_prev_sky_direction = RED_PIXEL;

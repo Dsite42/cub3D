@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 17:02:51 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/29 17:18:59 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/08/30 10:52:39 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	check_sky_direction(t_data *data, int ray_count, int wall_height)
 			i++;
 
 		}
-
+		printf("ray_count: %d X: %f y: %f angle: %f\n", ray_count, data->ray_x, data->ray_y, data->ray_angle);
 		data->prev_sky_direction = data->sky_direction;
 	}
 	if (data->prev_sky_direction == RED_PIXEL)
