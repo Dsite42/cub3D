@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 10:47:18 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/29 16:38:28 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/08/30 08:55:35 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,7 @@ static void	render_rays(t_data *data)
 			}
         }
 		sky_direction(data, ray_x_before, ray_y_before);
-		check_sky_direction(data, data->ray_count, data->wall_height);
+		//check_sky_direction(data, data->ray_count, data->wall_height);
 		//printf("old_old_color: %d, old_color: %d, data->color: %d\n", old_old_color, old_color, data->color);
 		// Calculate distance to wall
 		double distance = sqrt(pow(data->player_x - data->ray_x, 2) + pow(data->player_y - data->ray_y, 2));
@@ -145,6 +145,7 @@ static void	render_rays(t_data *data)
 		//Draw ray
 		//printf("ray_count: %d, winn_half_height: %d, wall_height: %d\n", ray_count, (data->mlx.win_height / 2), wall_height);
 		draw_line(data, data->ray_count, 0, (data->mlx.win_img.height / 2) - data->wall_height / 2, data->sky_direction);
+		//draw_line(data, data->ray_count, 0, (data->mlx.win_img.height / 2) - data->wall_height / 2, BLACK_PIXEL);
 		draw_line(data, data->ray_count, (data->mlx.win_img.height / 2) + data->wall_height / 2, data->mlx.win_img.height, GREEN_PIXEL);
 		//printf("ray_count: %d, winn_half_height: %d, wall_height: %d\n", data->ray_count, (data->mlx.win_img.height / 2), data->wall_height);
 		if (data->wall_height < data->mlx.win_img.height)

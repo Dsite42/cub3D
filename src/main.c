@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:29:03 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/29 16:22:51 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/08/30 09:04:38 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,21 @@ void	zero_struct_data(t_data *data)
 	data->mlx.win_img.height = 960;
 	data->FOV = 60;
 	data->half_FOV = data->FOV / 2;
-	data->player_x = 7.60;
+	data->player_x = 7.50;
 	data->player_y = 2.50;
-	data->player_angle = 45;
+	data->player_angle = 330;
 	data->ray_angle = 0;
 	data->ray_increment_angle = data->FOV / data->mlx.win_img.width;
-	data->ray_precision = 512;
+	data->ray_precision = 64;
+	data->ray_precision_high = 64 * 160;
 	data->sky_direction = RED_PIXEL;
 	data->prev_sky_direction = RED_PIXEL;
 	data->prev_prev_sky_direction = RED_PIXEL;
-
-	// texture
-	data->texture.width = 8;
-	data->texture.height = 8;
-	data->texture.color0 = 0x000000;
-	data->texture.color1 = 0xFFFFFF;
 }
+
 int	main(int argc, char **argv)
 {
 	t_data	data;
-	t_texture texture;
 
 	argv = NULL;
 
