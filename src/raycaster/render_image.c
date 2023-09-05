@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 10:47:18 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/05 17:21:11 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/05 17:48:12 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -229,14 +229,14 @@ static void	render_rays(t_data *data)
 		//draw_line(data, data->ray_count, 0, (data->mlx.win_img.height / 2) - data->wall_height / 2, BLACK_PIXEL);
 		draw_line(data, data->ray_count, (data->mlx.win_img.height / 2) + data->wall_height / 2, data->mlx.win_img.height, GREEN_PIXEL);
 		//printf("ray_count: %d, winn_half_height: %d, wall_height: %d\n", data->ray_count, (data->mlx.win_img.height / 2), data->wall_height);
-		/*
+		
 		if (data->wall_height < data->mlx.win_img.height)
 			draw_texture(data, (data->mlx.win_img.height / 2) - data->wall_height / 2, (data->mlx.win_img.height / 2) + data->wall_height / 2);
 		else
 		{
 			draw_texture(data, 0, data->mlx.win_img.height);
 		}
-		*/
+		
 		data->ray_angle = (data->ray_angle - data->ray_increment_angle);
 		if (data->ray_angle < 0)
 			data->ray_angle += 360;
@@ -278,7 +278,7 @@ int	render_image(t_data *data)
 {
 	if (data->mlx.win_ptr == NULL)
 		return (1);
-	render_background(data, &data->mlx.win_img, BLACK_PIXEL);
+	//render_background(data, &data->mlx.win_img, BLACK_PIXEL);
 	//texture_to_img(data);
 	render_rays(data);
 	mlx_put_image_to_window(data->mlx.mlx_ptr, data->mlx.win_ptr,
