@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:30:40 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/05 11:22:30 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/05 18:14:12 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
 # define NORTH 3148994
 # define WEST 15437613
 
-extern int map[5][5];
+extern int map[10][20];
 
 typedef struct s_img
 {

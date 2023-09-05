@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:29:03 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/05 17:46:02 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/05 18:17:14 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	zero_struct_data(t_data *data)
 	data->mlx.win_img.height = 960;
 	data->FOV = 60;
 	data->half_FOV = data->FOV / 2;
-	data->player_x = 2.7;
+	data->player_x = 2.4;
 	data->player_y = 2.7;
 	data->player_angle = 45;
 	data->ray_angle = 0;

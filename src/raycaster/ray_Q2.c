@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 10:31:45 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/05 18:01:19 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/05 18:18:24 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ double ray_Q2(t_data *data, int *i, int *j, int *wall)
 	double ray_x_sx_start = sqrt(pow(ray_x_dx_start, 2) + pow(tan(deg_to_rad(data->ray_angle)) * ray_x_dx_start, 2));
 	double ray_y_dy_start = data->player_y - floor(data->player_y);
 	double ray_y_sy_start = sqrt(pow(ray_y_dy_start, 2) + pow(ray_y_dy_start / tan(deg_to_rad(data->ray_angle)), 2));
-	ray_x_length = 0.99999*ray_x_sx_start + *i * fabs(unit_ray_x_length(data));
-	ray_y_length = 0.99999*ray_y_sy_start + *j * fabs(unit_ray_y_length(data));
+	ray_x_length = 0.9999999*ray_x_sx_start + *i * fabs(unit_ray_x_length(data));
+	ray_y_length = 0.9999999*ray_y_sy_start + *j * fabs(unit_ray_y_length(data));
 	if (ray_x_length < ray_y_length)
 	{
 		data->ray_x = data->player_x - fabs(ray_x_length * cos(deg_to_rad(data->ray_angle)));
