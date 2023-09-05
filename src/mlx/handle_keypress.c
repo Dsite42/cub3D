@@ -6,24 +6,11 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 10:45:15 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/17 16:59:32 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/05 15:48:40 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3D.h"
-
-int map2[10][10] = {
-    {1,1,1,1,1,1,1,1,1,1},
-    {1,0,0,0,0,0,0,0,0,1},
-    {1,0,0,0,0,0,0,0,0,1},
-    {1,0,0,0,0,0,0,0,0,1},
-    {1,0,0,1,0,1,0,0,0,1},
-    {1,0,0,0,0,0,0,0,0,1},
-    {1,0,0,0,0,0,0,0,0,1},
-    {1,0,0,0,0,0,0,0,0,1},
-    {1,0,0,0,0,0,0,0,0,1},
-    {1,1,1,1,1,1,1,1,1,1},
-};
 
 static int	is_wall(t_data *data, double step_factor, double player_angle)
 {
@@ -32,7 +19,7 @@ static int	is_wall(t_data *data, double step_factor, double player_angle)
 
 	x = data->player_x + cos(deg_to_rad(player_angle)) * step_factor;
 	y = data->player_y - sin(deg_to_rad(player_angle)) * step_factor;
-	return (map2[(int)(floor(y))][(int)(floor(x))]);
+	return (map[(int)(floor(y))][(int)(floor(x))]);
 }
 
 static void	go_step(t_data *data, double step_factor, double player_angle)

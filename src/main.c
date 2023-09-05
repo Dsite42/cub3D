@@ -6,11 +6,12 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:29:03 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/30 10:56:07 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/05 17:17:13 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
+
 
 void	zero_struct_data(t_data *data)
 {
@@ -29,9 +30,9 @@ void	zero_struct_data(t_data *data)
 	data->mlx.win_img.height = 960;
 	data->FOV = 60;
 	data->half_FOV = data->FOV / 2;
-	data->player_x = 1.999977;
-	data->player_y = 4.998063;
-	data->player_angle = 211.625000;
+	data->player_x = 2.7;
+	data->player_y = 2.7;
+	data->player_angle = 45;
 	data->ray_angle = 0;
 	data->ray_increment_angle = data->FOV / data->mlx.win_img.width;
 	data->ray_precision = 64 * 2;

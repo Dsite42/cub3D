@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:30:40 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/30 09:05:36 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/05 11:22:30 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@
 # define EAST 581375
 # define NORTH 3148994
 # define WEST 15437613
+
+extern int map[5][5];
 
 typedef struct s_img
 {
@@ -106,5 +108,12 @@ void	draw_line(t_data *data, int raycount, int y0, int y1, int raycolor);
 double	deg_to_rad(double degree);
 void	sky_direction(t_data *data, double ray_x, double ray_y);
 void	check_sky_direction(t_data *data, int ray_count, int wall_height);
+double	ray_Q1(t_data *data, int *i, int *j, int *wall);
+double	ray_Q2(t_data *data, int *i, int *j, int *wall);
+double	ray_Q3(t_data *data, int *i, int *j, int *wall);
+double	ray_Q4(t_data *data, int *i, int *j, int *wall);
+double	unit_ray_x_length(t_data *data);
+double	unit_ray_y_length(t_data *data);
+
 
 #endif

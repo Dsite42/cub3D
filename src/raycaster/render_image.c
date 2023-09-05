@@ -6,12 +6,13 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 10:47:18 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/30 10:44:07 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/05 17:21:11 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3D.h"
 
+/*
 int map[10][20] = {
     {1,1,1,1,1,1,1,1,1,1},
     {1,0,0,0,0,0,0,0,0,1},
@@ -24,6 +25,15 @@ int map[10][20] = {
     {1,0,0,0,0,0,0,0,0,1},
     {1,1,1,1,1,1,1,1,1,1},
 };
+*/
+int map[5][5] = {
+    {1,1,1,1,1},
+    {1,0,0,0,1},
+    {1,0,0,0,1},
+    {1,0,0,0,1},
+    {1,1,1,1,1},
+};
+
 
 void	draw_north_south_texture(t_data *data, t_img *img, int y0, int y1)
 {
@@ -106,23 +116,66 @@ static void	render_background(t_data *data, t_img *img, int color)
 	}
 }
 
+
 static void	render_rays(t_data *data)
 {
-	double	ray_x_before;
-	double	ray_y_before;
 	int		wall;
+	double distance;
+	int i;
+	int j;
 
 	data->ray_count = 0;
 	data->ray_angle = (int)(data->player_angle + data->half_FOV) % 360;
 	while (data->ray_count < data->mlx.win_img.width)
 	{
  		// Wall finder
+		i = 0;
+		j = 0;
         wall = 0;
 		data->ray_x = data->player_x;
 		data->ray_y = data->player_y;
 
         while (wall == 0)
-		{ 
+		{
+			if (data->ray_angle >= 0 && data->ray_angle < 90)
+			{
+				distance = ray_Q1(data, &i, &j, &wall);
+
+			}
+			else if (data->ray_angle >= 90 && data->ray_angle < 180)
+			{
+				distance = ray_Q2(data, &i, &j, &wall);
+			}
+            else if (data->ray_angle >= 180 && data->ray_angle < 270)
+            {
+				distance = ray_Q3(data, &i, &j, &wall);
+			}
+			else if (data->ray_angle >= 270 && data->ray_angle < 360)
+			{
+				distance = ray_Q4(data, &i, &j, &wall);
+			}
+
+			else
+			{
+				printf("data->ray_angle: %f\n", data->ray_angle);
+				break;
+            //printf("dx: %f, dy: %d\n", ray_x + (((ray_y - floor_to_next_lower_box(ray_y)) / tan(deg_to_rad(data->ray_angle)))), floor_to_next_lower_box(ray_y));
+			
+			
+			//ray_x += cos(deg_to_rad(data->ray_angle)) / data->ray_precision;
+            //ray_y -= sin(deg_to_rad(data->ray_angle)) / data->ray_precision;
+           // ray_x += cos(deg_to_rad(data->ray_angle));// / data->ray_precision;
+			//printf("deg_to_rad(data->ray_angle): %f\n", sin(deg_to_rad(data->ray_angle)));
+           // ray_y -= sin(deg_to_rad(data->ray_angle));// / data->ray_precision;
+            //wall = map[(int)(floor(ray_y) / BOX_WIDTH)][(int)(floor(ray_x) / BOX_WIDTH)];
+       		}
+		}
+
+
+
+///////
+/*
+{ 
 			if (fmin(data->ray_x - floor(data->ray_x), ceil(data->ray_x) - data->ray_x) > 1 / data->ray_precision && fmin(data->ray_y - floor(data->ray_y), ceil(data->ray_y) - data->ray_y) > 1 / data->ray_precision)
 			{
             	data->ray_x += cos(deg_to_rad(data->ray_angle)) / data->ray_precision;
@@ -142,13 +195,32 @@ static void	render_rays(t_data *data)
 				//printf("ray_x_box: %d, ray_y_box: %d\n", (int)(floor(ray_x)), (int)(floor(ray_y)));
 				//printf("ray_x: %f, ray_y: %f, wall: %d ray_angle: %f ray_count: %d\n", ray_x, ray_y, wall, data->ray_angle, ray_count);
 			}
-        }
+ }
+*/
+
+
+///////
+
+
+
+
+		
+
+
+			//exit(0);
+
+
+
+
+
+
+		
 		//printf("X: %f y: %f angle: %f\n", data->ray_x, data->ray_y, data->ray_angle);
-		sky_direction(data, ray_x_before, ray_y_before);
-		check_sky_direction(data, data->ray_count, data->wall_height);
+		//sky_direction(data, ray_x_before, ray_y_before);
+		//check_sky_direction(data, data->ray_count, data->wall_height);
 		//printf("old_old_color: %d, old_color: %d, data->color: %d\n", old_old_color, old_color, data->color);
 		// Calculate distance to wall
-		double distance = sqrt(pow(data->player_x - data->ray_x, 2) + pow(data->player_y - data->ray_y, 2));
+		//distance = sqrt(pow(data->player_x - data->ray_x, 2) + pow(data->player_y - data->ray_y, 2));
 		distance *= cos(deg_to_rad(data->ray_angle - data->player_angle));
 		data->wall_height = floor(data->mlx.win_img.height / distance);
 		//Draw ray
@@ -157,17 +229,19 @@ static void	render_rays(t_data *data)
 		//draw_line(data, data->ray_count, 0, (data->mlx.win_img.height / 2) - data->wall_height / 2, BLACK_PIXEL);
 		draw_line(data, data->ray_count, (data->mlx.win_img.height / 2) + data->wall_height / 2, data->mlx.win_img.height, GREEN_PIXEL);
 		//printf("ray_count: %d, winn_half_height: %d, wall_height: %d\n", data->ray_count, (data->mlx.win_img.height / 2), data->wall_height);
+		/*
 		if (data->wall_height < data->mlx.win_img.height)
 			draw_texture(data, (data->mlx.win_img.height / 2) - data->wall_height / 2, (data->mlx.win_img.height / 2) + data->wall_height / 2);
 		else
 		{
 			draw_texture(data, 0, data->mlx.win_img.height);
 		}
+		*/
 		data->ray_angle = (data->ray_angle - data->ray_increment_angle);
 		if (data->ray_angle < 0)
 			data->ray_angle += 360;
 		data->ray_count++;
-		//if (ray_count == data->win_width)
+		//if (data->ray_count == data->mlx.win_img.width)
 		//	exit(0);	
 	}
 	
@@ -204,7 +278,7 @@ int	render_image(t_data *data)
 {
 	if (data->mlx.win_ptr == NULL)
 		return (1);
-	//render_background(data, &data->win_img, BLACK_PIXEL);
+	render_background(data, &data->mlx.win_img, BLACK_PIXEL);
 	//texture_to_img(data);
 	render_rays(data);
 	mlx_put_image_to_window(data->mlx.mlx_ptr, data->mlx.win_ptr,
