@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 10:40:25 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/29 16:15:19 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/06 08:30:28 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ int	start_mlx(t_data *data)
 			data->mlx.win_img.width, data->mlx.win_img.height, "cub3D");
 	data->mlx.win_img.mlx_img = mlx_new_image(data->mlx.mlx_ptr,
 			data->mlx.win_img.width, data->mlx.win_img.height);
-	data->mlx.north_img.mlx_img = mlx_xpm_file_to_image(data->mlx.mlx_ptr, "/Users/cgodecke/Desktop/Core/cub3D/textures/Dsite42_800x800.xpm",
+	data->mlx.north_img.mlx_img = mlx_xpm_file_to_image(data->mlx.mlx_ptr, "/home/chris/Core/cub3D/textures/Dsite42_800x800.xpm",
 			&data->mlx.north_img.width, &data->mlx.north_img.height);
-	data->mlx.east_img.mlx_img = mlx_xpm_file_to_image(data->mlx.mlx_ptr, "/Users/cgodecke/Desktop/Core/cub3D/textures/wall_1.xpm",
+	data->mlx.east_img.mlx_img = mlx_xpm_file_to_image(data->mlx.mlx_ptr, "/home/chris/Core/cub3D/textures/wall_1.xpm",
 			&data->mlx.east_img.width, &data->mlx.east_img.height);
-	data->mlx.south_img.mlx_img = mlx_xpm_file_to_image(data->mlx.mlx_ptr, "/Users/cgodecke/Desktop/Core/cub3D/textures/stonewall000.xpm",
+	data->mlx.south_img.mlx_img = mlx_xpm_file_to_image(data->mlx.mlx_ptr, "/home/chris/Core/cub3D/textures/stonewall000.xpm",
 			&data->mlx.south_img.width, &data->mlx.south_img.height);
-	data->mlx.west_img.mlx_img = mlx_xpm_file_to_image(data->mlx.mlx_ptr, "/Users/cgodecke/Desktop/Core/cub3D/textures/brick_2.xpm",
+	data->mlx.west_img.mlx_img = mlx_xpm_file_to_image(data->mlx.mlx_ptr, "/home/chris/Core/cub3D/textures/brick_2.xpm",
 			&data->mlx.west_img.width, &data->mlx.west_img.height);
 
 	if (data->mlx.north_img.mlx_img == NULL || data->mlx.east_img.mlx_img == NULL

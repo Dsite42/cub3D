@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 10:47:18 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/05 18:13:42 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/06 09:20:19 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int map[5][5] = {
     {1,1,1,1,1},
 };
 */
-
 
 void	draw_north_south_texture(t_data *data, t_img *img, int y0, int y1)
 {
@@ -117,7 +116,6 @@ static void	render_background(t_data *data, t_img *img, int color)
 	}
 }
 
-
 static void	render_rays(t_data *data)
 {
 	int		wall;
@@ -140,20 +138,20 @@ static void	render_rays(t_data *data)
 		{
 			if (data->ray_angle >= 0 && data->ray_angle < 90)
 			{
-				distance = ray_Q1(data, &i, &j, &wall);
+				distance = ray_q1(data, &i, &j, &wall);
 
 			}
 			else if (data->ray_angle >= 90 && data->ray_angle < 180)
 			{
-				distance = ray_Q2(data, &i, &j, &wall);
+				distance = ray_q2(data, &i, &j, &wall);
 			}
             else if (data->ray_angle >= 180 && data->ray_angle < 270)
             {
-				distance = ray_Q3(data, &i, &j, &wall);
+				distance = ray_q3(data, &i, &j, &wall);
 			}
 			else if (data->ray_angle >= 270 && data->ray_angle < 360)
 			{
-				distance = ray_Q4(data, &i, &j, &wall);
+				distance = ray_q4(data, &i, &j, &wall);
 			}
 
 			else
