@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:30:40 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/06 08:52:13 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/06 09:50:51 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,9 @@
 # include "minilibx-linux/mlx.h"
 
 # define MLX_ERROR 30
-# define BlUE_PIXEL 0x0000FF
-# define RED_PIXEL 0xFF0000
-# define BLACK_PIXEL 0x000000
-# define GREEN_PIXEL 3110932
+# define CEILING_COLOR 0x0000FF
+# define FLOOR_COLOR 3110932
+# define RED_PIXEL 16711680
 
 # define SOUTH 16764424
 # define EAST 581375
@@ -104,7 +103,7 @@ void	img_pix_put(t_img *img, int x, int y, int color);
 
 // raycaster
 int		render_image(t_data *data);
-void	draw_line(t_data *data, int raycount, int y0, int y1, int raycolor);
+void	draw_line(t_data *data, int y0, int y1, int raycolor);
 double	deg_to_rad(double degree);
 void	sky_direction(t_data *data, double ray_x, double ray_y);
 void	check_sky_direction(t_data *data, int ray_count, int wall_height);
@@ -114,6 +113,7 @@ double	ray_q3(t_data *data, int *i, int *j, int *wall);
 double	ray_q4(t_data *data, int *i, int *j, int *wall);
 double	unit_ray_x_length(t_data *data);
 double	unit_ray_y_length(t_data *data);
+void	draw_texture(t_data *data, int y0, int y1);
 
 
 #endif
