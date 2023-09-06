@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:29:03 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/06 09:50:39 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/06 09:58:23 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,7 @@ void	zero_struct_data(t_data *data)
 	data->player_angle = 45;
 	data->ray_angle = 0;
 	data->ray_increment_angle = data->FOV / data->mlx.win_img.width;
-	data->ray_precision = 64 * 2;
-	data->ray_precision_high = 64 * 160 * 2;
-	data->sky_direction = RED_PIXEL;
-	data->prev_sky_direction = RED_PIXEL;
-	data->prev_prev_sky_direction = RED_PIXEL;
+	data->sky_direction = 0;
 }
 
 int	main(int argc, char **argv)
@@ -55,7 +51,6 @@ int	main(int argc, char **argv)
 	}
 	zero_struct_data(&data);
 	start_mlx(&data);
-	//exit(0);
 	mlx_loop_hook(data.mlx.mlx_ptr, &render_image, &data);
 	mlx_hook(data.mlx.win_ptr, KeyPress, KeyPressMask, &handle_keypress, &data);
 	mlx_hook(data.mlx.win_ptr, DestroyNotify,

@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:30:40 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/06 09:50:51 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/06 09:58:14 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@
 # define MLX_ERROR 30
 # define CEILING_COLOR 0x0000FF
 # define FLOOR_COLOR 3110932
-# define RED_PIXEL 16711680
 
 # define SOUTH 16764424
 # define EAST 581375
@@ -84,15 +83,11 @@ typedef struct s_data
 	double 	player_angle;
 	double	ray_angle;
 	double	ray_increment_angle;
-	double	ray_precision;
-	double	ray_precision_high;
 	double	ray_x;
 	double	ray_y;
 	int		ray_count;
 	int		wall_height;
 	int		sky_direction;
-	int		prev_sky_direction;
-	int		prev_prev_sky_direction;
 }	t_data;
 
 // mlx
@@ -114,6 +109,5 @@ double	ray_q4(t_data *data, int *i, int *j, int *wall);
 double	unit_ray_x_length(t_data *data);
 double	unit_ray_y_length(t_data *data);
 void	draw_texture(t_data *data, int y0, int y1);
-
 
 #endif
