@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:30:40 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/06 09:58:14 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/08 09:41:41 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ typedef struct s_data
 }	t_data;
 
 // mlx
-int		window_close(t_data *data);
+int		window_close(t_data *data, int error_code);
 int		start_mlx(t_data *data);
 int		handle_keypress(int keysym, t_data *data);
 void	img_pix_put(t_img *img, int x, int y, int color);
