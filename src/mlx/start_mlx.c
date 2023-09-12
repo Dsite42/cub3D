@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 10:40:25 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/12 13:58:48 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/12 14:48:13 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 static void	load_textures(t_data *data)
 {
-	data->mlx.north_img.mlx_img = mlx_xpm_file_to_image(data->mlx.mlx_ptr, "/Users/cgodecke/Desktop/Core/cub3D/textures/Dsite42_800x800.cub.xpm",
+	data->mlx.north_img.mlx_img = mlx_xpm_file_to_image(data->mlx.mlx_ptr, "./textures/Dsite42_800x800.cub.xpm",
 			&data->mlx.north_img.width, &data->mlx.north_img.height);
-	data->mlx.east_img.mlx_img = mlx_xpm_file_to_image(data->mlx.mlx_ptr, "/Users/cgodecke/Desktop/Core/cub3D/textures/stonewall000.cub.xpm",
+	data->mlx.east_img.mlx_img = mlx_xpm_file_to_image(data->mlx.mlx_ptr, "./textures/stonewall000.cub.xpm",
 			&data->mlx.east_img.width, &data->mlx.east_img.height);
-	data->mlx.south_img.mlx_img = mlx_xpm_file_to_image(data->mlx.mlx_ptr, "/Users/cgodecke/Desktop/Core/cub3D/textures/arafa-spider.cub.xpm",
+	data->mlx.south_img.mlx_img = mlx_xpm_file_to_image(data->mlx.mlx_ptr, "./textures/arafa-spider.cub.xpm",
 			&data->mlx.south_img.width, &data->mlx.south_img.height);
-	data->mlx.west_img.mlx_img = mlx_xpm_file_to_image(data->mlx.mlx_ptr, "/Users/cgodecke/Desktop/Core/cub3D/textures/brick_2.cub.xpm",
+	data->mlx.west_img.mlx_img = mlx_xpm_file_to_image(data->mlx.mlx_ptr, "./textures/brick_2.cub.xpm",
 			&data->mlx.west_img.width, &data->mlx.west_img.height);
 	if (data->mlx.north_img.mlx_img == NULL
 		|| data->mlx.east_img.mlx_img == NULL
