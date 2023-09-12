@@ -6,13 +6,13 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 15:59:18 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/05 15:59:19 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/12 12:50:08 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
 
-int	*get_addr_tex_img(t_data *img, t_teximg *dir_ptr)
+int	*get_addr_tex_img(t_data *img, s_img *dir_ptr)
 {
 	int			*tmp;
 	int			x;

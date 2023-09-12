@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:29:03 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/08/15 10:21:48 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/12 12:38:40 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "../includes/cub3D.h"
 
 void	zero_struct_data(t_data *data)
 {
@@ -45,6 +45,7 @@ int	main(int argc, char **argv)
 		perror("Error: wrong number of arguments\n");
 		return (0);
 	}
+	ft_validation(&data);
 	zero_struct_data(&data);
 	return (0);
 }
