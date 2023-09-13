@@ -6,7 +6,7 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 13:04:10 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/11 12:17:33 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/13 13:17:01 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ void	*ft_load_image(t_data *data, char *file)
 	return (image);
 }
 
+/* This func checks the validity of each RGB color valure represented
+** as a string, ensures each character in the RGB value is a digit and
+** handles errors if an invalid character is encountered*/
 static void	ft_check_rgb(t_data *data)
 {
 	int	i;
@@ -34,7 +37,7 @@ static void	ft_check_rgb(t_data *data)
 	while (data->rgb[i])
 	{
 		j = 0;
-		while (data-.rgb[i][j])
+		while (data->rgb[i][j])
 		{
 			if ((j != 0) && data->rgb[i][j] == '\n')
 			{
@@ -49,6 +52,9 @@ static void	ft_check_rgb(t_data *data)
 	}
 }
 
+/* This func validates the RGB color value corresponding color
+** components in a data sruct where F is Floorground and C
+** is Ceiling*/
 static bool	ft_validation_rbg_range(t_data *data)
 {
 	int	r;
@@ -90,4 +96,4 @@ void	ft_validation_fc_rgb(t_data *data)
 		ft_free_data_print_exit(data, "Error\nInvalid RBG range of input\n");
 	ft_free_table(data->rgb);
 	data->rgb = NULL;
-} 
+}

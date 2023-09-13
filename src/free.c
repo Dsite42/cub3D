@@ -6,11 +6,11 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:58:42 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/11 10:58:57 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/13 14:08:29 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/data.h"
+#include "../includes/cub3D.h"
 
 void	ft_free_table(char **table)
 {

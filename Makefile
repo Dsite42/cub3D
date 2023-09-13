@@ -6,18 +6,27 @@
 #    By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/18 15:39:27 by cgodecke          #+#    #+#              #
-#    Updated: 2023/09/12 12:45:58 by ankinzin         ###   ########.fr        #
+#    Updated: 2023/09/13 14:08:09 by ankinzin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CC_FLAGS = -Wall -Wextra -Werror -fsanitize=address
 OBJDIR = obj
-HEADER := src/cub3D.h
+HEADER := includes/cub3D.h
 LIBFTDIR := src/libft
 LIBFT := libft.a
-INFILES = 	src/main.c free.c general.c general1.c init_1.c init_2.c map_file.c\
-				validate_element.c validate_image.c validate_map.c validation.c \
+INFILES = 	src/main.c \
+			src/free.c \
+			src/general.c \
+			src/general1.c \
+			src/init_1.c \
+			src/init_2.c \
+			src/map_file.c \
+			src/validate_element.c \
+			src/validate_image.c \
+			src/validate_map.c \
+			src/validation.c \
 
 OBJFILES = $(INFILES:%.c=$(OBJDIR)/%.o)
 

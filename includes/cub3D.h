@@ -6,7 +6,7 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:30:40 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/12 12:51:44 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/13 14:53:35 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@
 # include <float.h>
 # include <errno.h>
 
-//# include <X11/X.h>
-//# include <X11/keysym.h>
-//# include "minilibx-linux/mlx.h"
+# include <X11/X.h>
+# include <X11/keysym.h>
+# include "minilibx-linux/mlx.h"
 
 # define ROTRIGHT 65363
 # define ROTLEFT 65361
@@ -35,14 +35,17 @@
 # define ESC 65307
 # define TABSIZE 8
 
-typedef struct s_img
-{
-	void	*mlx_img;
-	char	*addr;
-	int		bpp;
-	int		line_len;
-	int		endian;
-}	t_img;
+typedef struct s_iso_res {
+	float	x;
+	float	y;
+	float	z;
+}		t_iso_res;
+
+typedef struct s_color {
+	float	c0;
+	float	c1;
+	float	step;
+}		t_color;
 
 enum e_texEnum{
 	NORTH,
@@ -51,12 +54,19 @@ enum e_texEnum{
 	EAST
 };
 
+typedef struct s_teximg {
+	void	*img;
+	int		*addr;
+	int		bpp;
+	int		line_l;
+	int		endian;
+}	t_teximg;
+
 typedef struct s_data
 {
 	//mlx
 	void	*mlx_ptr;
 	void	*win_ptr;
-	t_img	img;
 	int		cur_img;
 
 	//map
@@ -77,6 +87,16 @@ typedef struct s_data
 	double	ray_increment_angle;
 	double	ray_precision;
 	// ### Added Staff ###
+	int				tex_w;
+	int				tex_h;
+	int				**tex;
+	t_teximg		no_ptr;
+	t_teximg		so_ptr;
+	t_teximg		we_ptr;
+	t_teximg		ea_ptr;
+	void			*mlx;
+	void			*mlx_win;
+	void			*img;
 	char			**rgb;
 	char			**generic;
 	char			**elements;
@@ -98,6 +118,12 @@ typedef struct s_data
 	int				p_posy;
 	int				map_start;
 	int				magic[6];
+	unsigned char	f_r;
+	unsigned char	f_g;
+	unsigned char	f_b;
+	unsigned char	c_r;
+	unsigned char	c_g;
+	unsigned char	c_b;
 }	t_data;
 
 // --> general.c
@@ -121,7 +147,7 @@ void		init_dir(t_data *data);
 // --> init_2.c
 void		init_data(t_data	*data);
 //void		init_tex(t_data *img);
-int			*get_addr_tex_img(t_data *img, *s_img *dir_ptr);
+int			*get_addr_tex_img(t_data *img, t_teximg *dir_ptr);
 
 // --> validation.c
 void		ft_check_fd(t_data *data);
@@ -142,6 +168,12 @@ void		ft_check_map_size(t_data *data, int fd);
 void		ft_check_map_tiles(t_data *data);
 void		ft_copy_table(t_data *data);
 void		ft_flood_fill(t_data *data, int x, int y, char *elements);
+
+// --> free.c
+void		ft_free_table(char **table);
+void		ft_free_data_print_exit(t_data *data, char *msg);
+void		ft_free_data(t_data *data);
+void		ft_free_tex(t_data *data);
 
 // --> map_file.c
 void		ft_handle_map_cp(t_data *data);

@@ -6,12 +6,15 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 13:04:13 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/11 13:12:24 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/13 14:03:16 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/data.h"
 
+/* This func reads lines from a file descriptor and determines the size of
+** a map represented by those lines, counts number of rows and collumns in
+** the map while skipping any lines that arent part of the map*/
 void	ft_check_map_size(t_data *data, int fd)
 {
 	int	line_size;
@@ -40,6 +43,9 @@ void	ft_check_map_size(t_data *data, int fd)
 	}
 }
 
+/* This func is used to validate the map elements and handles player spawn
+** points by checking for duplicates and storing player's position and
+** direction*/
 static void	ft_check_map_tile_1(t_data *data, char tile, int line, int column)
 {
 	if (!ft_strchr("10NSEW#", tile))
@@ -49,12 +55,13 @@ static void	ft_check_map_tile_1(t_data *data, char tile, int line, int column)
 		if (data->p_spawn >= 1)
 			ft_free_data_print_exit(data, "Error\nMultiples player spawn\n");
 		data->p_spawn = 1;
-		data->p_posy = line;
-		data->p_posx = column;
+		data->player_y = line;
+		data->player_x = column;
 		data->dir = tile;
 	}
 }
 
+/* This checks if we have a player in the map*/
 void	ft_check_map_tiles(t_data *data)
 {
 	int		i;
@@ -76,6 +83,9 @@ void	ft_check_map_tiles(t_data *data)
 			"Error\nThe map doesn't have a player spawn\n");
 }
 
+/* this is used to create a duplicate of the 2D array of strings and
+** stores it in another array, useful to preserve the original map
+** while making modifications to the copied version*/
 void	ft_copy_table(t_data *data)
 {
 	int		i;
@@ -90,6 +100,9 @@ void	ft_copy_table(t_data *data)
 	data->map_flood[i] = NULL;
 }
 
+/* here we perform flood fill recursively to connect the cells with X by
+** checking the boundary walls and validating the current cells characters
+** within the specified elements*/
 void	ft_flood_fill(t_data *data, int x, int y, char *elements)
 {
 	if (x < 0 || x >= (data->bg_line + 2) || y < 0 || y >= (data->bg_column + 2))

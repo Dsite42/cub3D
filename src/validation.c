@@ -6,12 +6,14 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 13:04:16 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/12 12:27:23 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/13 14:02:29 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/data.h"
 
+/* This func reads lines from a file descritor, duplicates each line, and stores
+** the dup lines in a 2D array of strings*/
 static void	ft_file_to_dup_ptr(t_data *data, int fd)
 {
 	int	i;
@@ -28,6 +30,9 @@ static void	ft_file_to_dup_ptr(t_data *data, int fd)
 	close (fd);
 }
 
+/* This func performs file handling tasks such as opening, checking
+** and reopening a file for reading, we also check for map size
+** file existence...*/
 void	ft_check_fd(t_data *data)
 {
 	int	fd;
@@ -64,6 +69,8 @@ void	ft_check_map_extension(t_data *data, const char *extension)
 			ft_free_data_print_exit(data, "Error: Invalid map extension\n");
 }
 
+/* This goes through the mnap and searches for the line numbere where
+** map data begins, and identify it as the start of the map*/
 void	ft_map_start_line(t_data *data)
 {
 	int	i;
@@ -96,5 +103,5 @@ void	ft_validation(t_data *data)
 	ft_check_map_tiles(data);
 	ft_copy_table(data);
 	ft_print_map(data->map_flood);
-	ft_flood_fill(data, data->p_posx, data->p_posy, "NSEW0");
+	ft_flood_fill(data, data->player_x, data->player_y, "NSEW0");
 }

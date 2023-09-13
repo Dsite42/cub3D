@@ -6,12 +6,15 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 13:04:06 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/05 15:45:19 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/13 12:46:13 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
 
+/* This func is handling the parse and validation of elements from a line of
+** input, checking errors related ro the numbre of elements, invalid
+** or repetition of elements*/
 static void	ft_handle_element(t_data *data, char *line)
 {
 	int	i;
@@ -35,6 +38,7 @@ static void	ft_handle_element(t_data *data, char *line)
 	data->generic = NULL;
 }
 
+/* Here we validate empty line we skip the, and we check for invalids too*/
 void	ft_check_map_elements(t_data *data)
 {
 	int	i;
@@ -56,6 +60,7 @@ void	ft_check_map_elements(t_data *data)
 	}
 }
 
+/* Here we load images based on the confihurated values*/
 static void	ft_check_init_elements(t_data *data)
 {
 	if (ft_abs_compare("NO", data->generic[0]))
