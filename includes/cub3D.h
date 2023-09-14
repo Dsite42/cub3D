@@ -6,7 +6,7 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:30:40 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/13 14:53:35 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/13 15:36:00 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 # include <X11/X.h>
 # include <X11/keysym.h>
-# include "minilibx-linux/mlx.h"
+# include "../src/minilibx-linux/mlx.h"
 
 # define ROTRIGHT 65363
 # define ROTLEFT 65361
@@ -87,6 +87,20 @@ typedef struct s_data
 	double	ray_increment_angle;
 	double	ray_precision;
 	// ### Added Staff ###
+	int				w_img;
+	int				h_img;
+	char			*addr;
+	int				bpp;
+	int				line_l;
+	int				endian;
+	int				w_map;
+	int				h_map;
+	char			dir;
+	//float			fov;
+	float			dir_x;
+	float			dir_y;
+	float			plane_x;
+	float			plane_y;
 	int				tex_w;
 	int				tex_h;
 	int				**tex;
@@ -94,6 +108,12 @@ typedef struct s_data
 	t_teximg		so_ptr;
 	t_teximg		we_ptr;
 	t_teximg		ea_ptr;
+	int				left;
+	int				right;
+	int				up;
+	int				down;
+	int				rotleft;
+	int				rotright;
 	void			*mlx;
 	void			*mlx_win;
 	void			*img;
@@ -109,6 +129,9 @@ typedef struct s_data
 	void			*we_vptr;
 	void			*ea_vptr;
 	char			*file;
+	float			fov;
+	float			pos_x;
+	float			pos_y;
 	//int				t_teximg;
 	int				file_size;
 	int				bg_line;
@@ -125,6 +148,15 @@ typedef struct s_data
 	unsigned char	c_g;
 	unsigned char	c_b;
 }	t_data;
+
+typedef struct s_copy
+{
+	int		*i;
+	int		*j;
+	bool	r_wall;
+	char	*src;
+	char	*dst;
+}		t_copy;
 
 // --> general.c
 bool		ft_abs_compare(char *s1, char *s2);

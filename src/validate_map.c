@@ -6,11 +6,11 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 13:04:13 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/13 14:03:16 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/13 15:37:39 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/data.h"
+#include "../includes/cub3D.h"
 
 /* This func reads lines from a file descriptor and determines the size of
 ** a map represented by those lines, counts number of rows and collumns in

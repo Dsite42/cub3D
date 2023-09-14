@@ -6,7 +6,7 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 13:04:10 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/13 13:17:01 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/13 15:37:19 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_load_image(t_data *data, char *file)
 
 	file[((int)ft_strlen(file)) -1] = '\0';
 	image = mlx_xpm_file_to_image(data->mlx, file,
-		&data->raycast_width, &data->raycast_h);
+		&data->tex_w, &data->tex_h);
 
 	if (!image)
 		ft_free_data_print_exit(data, "Error\n Failed to Load Image\n");

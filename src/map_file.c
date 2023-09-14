@@ -6,11 +6,11 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 12:29:32 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/12 12:29:44 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/13 15:34:52 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/data.h"
+#include "../includes/cub3D.h"
 
 static void	ft_handle_copy_2(t_copy *this)
 {

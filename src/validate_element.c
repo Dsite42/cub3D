@@ -6,7 +6,7 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 13:04:06 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/13 12:46:13 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/13 15:36:22 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	ft_check_map_elements(t_data *data)
 		}
 		if ((i == data->map_start) && !ft_element_done(data->magic))
 			ft_free_data_print_exit(data, "Error\n Invalid Map Elements\n");
-		ft_handle_element(data, data->file[i]);
+		ft_handle_element(data, &data->file[i]);
 		i++;
 	}
 }

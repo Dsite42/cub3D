@@ -6,7 +6,7 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 15:59:15 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/13 14:04:01 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/13 15:04:09 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	init_data_pointers(t_data *data)
 	data->map_flood = NULL;
 	data->no_vptr = NULL;
 	data->so_vptr = NULL;
-	data->we_ptr = NULL;
+	data->we_vptr = NULL;
 	data->ea_vptr = NULL;
 }
 
@@ -41,7 +41,7 @@ void	init_data_structure(t_data *data, char *file)
 	data->bg_column = 0;
 	data->bg_line = 0;
 	data->p_spawn = 0;
-	data->playe_x = -1;
+	data->player_x = -1;
 	data->player_y = -1;
 }
 
