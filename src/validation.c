@@ -6,7 +6,7 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 13:04:16 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/14 11:29:27 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/15 14:13:00 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,8 @@ void	ft_check_fd(t_data *data)
 	fd = open(data->file, O_RDONLY);
 	if (fd < 0)
 	{
-		// close (fd); //failed to open
-		// ft_free_data_print_exit(data, "Error\nInvalid fd! File doesn't exit\n");//nothing to free
-		return (ft_putendl_fd("Failed to open fd",2), exit(1));
+		close (fd);
+		ft_free_data_print_exit(data, "Error\nInvalid fd! File doesn't exit\n");
 	}
 	data->line = get_next_line(fd);
 	ft_check_map_size(data, fd);
@@ -57,21 +56,17 @@ void	ft_check_fd(t_data *data)
 void	ft_check_map_extension(t_data *data, const char *extension)
 {
 	int	i;
-	int	len_file = 0;
-	int	len_ext = 0;
+	int	len_file;
+	int	len_ext;
 
-	if  (!data->file)
-		return (ft_putendl_fd("File is empty", 2), exit(1));
-	len_ext = ((int)ft_strlen(extension));
 	len_file = ((int)ft_strlen(data->file));
+	len_ext = ((int)ft_strlen(extension));
 	i = -1;
 	if (len_file < 5)
-		return (ft_putendl_fd("Error: Invalid map name!", 2), exit(1));
-		//ft_free_data_print_exit(data, "Error\nInvalid map name\n");
+		ft_free_data_print_exit(data, "Error\nInvalid map name\n");
 	while (++i < 4)
 		if (data->file[--len_file] != extension[--len_ext])
-			return (ft_putendl_fd("Error: Invalid map extension!", 2), exit(1));
-			//ft_free_data_print_exit(data, "Error: Invalid map extension\n");
+			ft_free_data_print_exit(data, "Error: Invalid map extension\n");
 }
 
 /* This goes through the mnap and searches for the line numbere where
@@ -97,6 +92,7 @@ void	ft_validation(t_data *data)
 	int	i;
 
 	ft_check_map_extension(data, ".cub");
+
 	ft_check_fd(data);
 	ft_map_start_line(data);
 	ft_check_map_elements(data);

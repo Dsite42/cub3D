@@ -6,7 +6,7 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 13:04:06 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/13 15:36:22 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/15 14:15:18 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	ft_handle_element(t_data *data, char *line)
 		ft_free_data_print_exit(data, "Error\nSomething is wrong\n");
 	i = 0;
 	while (data->elements[i]
-		&& !ft_abs_compare(data->generic[i], data->elements[i]))
+		&& !ft_abs_compare(data->generic[0], data->elements[i]))
 		i++;
 	if (data->elements[i] == NULL)
 		ft_free_data_print_exit(data, "Error\nInvalid Element\n");
@@ -55,7 +55,7 @@ void	ft_check_map_elements(t_data *data)
 		}
 		if ((i == data->map_start) && !ft_element_done(data->magic))
 			ft_free_data_print_exit(data, "Error\n Invalid Map Elements\n");
-		ft_handle_element(data, &data->file[i]);
+		ft_handle_element(data, data->file_map[i]);
 		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 15:59:15 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/13 15:04:09 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/15 13:13:50 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	init_data_pointers(t_data *data)
 
 void	init_data_structure(t_data *data, char *file)
 {
-	int	i;
+	int		i;
 
 	i = 0;
 	data->mlx = mlx_init();
@@ -47,19 +47,19 @@ void	init_data_structure(t_data *data, char *file)
 
 void	init_dir_e_w(t_data *data)
 {
-	if (data->dir == 'N')
+	if (data->dir == 'E')
 	{
-		data->dir_x = 0;
-		data->dir_y = -1;
+		data->dir_x = 1;
+		data->dir_y = 0;
 		data->plane_x = 0;
-		data->plane_y = data->FOV;
+		data->plane_y = data->fov;
 	}
 	else if (data->dir == 'W')
 	{
 		data->dir_x = -1;
 		data->dir_y = 0;
 		data->plane_x = 0;
-		data->plane_y = -data->FOV;
+		data->plane_y = -data->fov;
 	}
 	else
 		return ;
@@ -71,14 +71,14 @@ void	init_dir_n_s(t_data *data)
 	{
 		data->dir_x = 0;
 		data->dir_y = -1;
-		data->plane_x = data->FOV;
+		data->plane_x = data->fov;
 		data->plane_y = 0;
 	}
 	else if (data->dir == 'S')
 	{
 		data->dir_x = 0;
 		data->dir_y = 1;
-		data->plane_x = -data->FOV;
+		data->plane_x = -data->fov;
 		data->plane_y = 0;
 	}
 	else

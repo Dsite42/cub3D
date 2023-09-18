@@ -6,7 +6,7 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:29:03 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/14 11:38:59 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/18 17:39:40 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	zero_struct_data(t_data *data)
 	//data->cur_img = 0;
 
 	//raycaster
-	data->win_width = 640;
-	data->win_height = 480;
+	data->win_width = 1920;
+	data->win_height = 1080;
 	data->win_half_width = data->win_width / 2;
 	data->win_half_height = data->win_height / 2;
 	data->FOV = 60;
@@ -46,7 +46,12 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	data.file = argv[1];
+	init_data_structure(&data, argv[1]);
 	zero_struct_data(&data);
 	ft_validation(&data);
+	init_data(&data);
+	printf("Floor: R%i G%i B%i \n", data.f_r, data.f_g, data.f_b);
+	printf("Ceiling: R%i G%i B%i\n", data.c_r, data.c_g, data.c_b);
+	ft_putstr_fd("\n\n>>> VALIDATION OK! <<<\n", 1);
 	return (0);
 }

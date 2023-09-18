@@ -6,7 +6,7 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 15:28:30 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/11 10:41:29 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/15 13:13:30 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_real_size(char *str)
 	return (size);
 }
 
-void ft_print_map(char **map)
+void	ft_print_map(char **map)
 {
 	int	i;
 	int	j;
@@ -44,8 +44,8 @@ void ft_print_map(char **map)
 	{
 		j = 0;
 		while (map[i][j])
-			write(STDOUT_FILENO, &map[i][j++], 1);
-		write(STDOUT_FILENO, "\n", 1);
+			write (STDOUT_FILENO, &map[i][j++], 1);
+		write (STDOUT_FILENO, "\n", 1);
 		i++;
 	}
 	write (STDOUT_FILENO, "\n", 1);

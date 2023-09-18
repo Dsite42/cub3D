@@ -6,7 +6,7 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 15:28:28 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/05 15:44:27 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/15 14:27:52 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ bool	ft_reach_map(char *str)
 	while (*str == ' ' || *str == '\f' || *str == '\r'
 		|| *str == '\t' || *str == '\v')
 		str++;
-	if (*str != '1' && *str != '\0')
+	if (*str != '1' && *str != '0')
 		return (false);
 	while (*str == '1' || *str == '0' || *str == ' ')
 		str++;

@@ -6,7 +6,7 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:30:40 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/13 15:36:00 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/18 17:53:48 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ enum e_texEnum{
 
 typedef struct s_teximg {
 	void	*img;
-	int		*addr;
+	char	*addr;
 	int		bpp;
 	int		line_l;
 	int		endian;
