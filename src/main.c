@@ -6,7 +6,7 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:29:03 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/18 17:39:40 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/19 16:59:28 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,16 @@ int	main(int argc, char **argv)
 	init_data_structure(&data, argv[1]);
 	zero_struct_data(&data);
 	ft_validation(&data);
-	init_data(&data);
+	//init_data(&data);
 	printf("Floor: R%i G%i B%i \n", data.f_r, data.f_g, data.f_b);
 	printf("Ceiling: R%i G%i B%i\n", data.c_r, data.c_g, data.c_b);
+	printf("NO_path:%s\n", data.NO_path);
+	printf("EA_path:%s\n", data.EA_path);
+	printf("SO_path:%s\n", data.SO_path);
+	printf("WE_path:%s\n", data.WE_path);
+
+
 	ft_putstr_fd("\n\n>>> VALIDATION OK! <<<\n", 1);
+	ft_free_data_print_exit(&data, "Freed alles\n");
 	return (0);
 }

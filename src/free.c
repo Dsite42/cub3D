@@ -6,7 +6,7 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:58:42 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/15 13:12:29 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/19 17:02:11 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,14 @@ static void	ft_free_data_print_exit_1(t_data *data)
 
 void	ft_free_data_print_exit(t_data *data, char *msg)
 {
+	if (data->NO_path)
+		free(data->NO_path);
+	if (data->SO_path)
+		free(data->SO_path);
+	if (data->WE_path)
+		free(data->WE_path);
+	if (data->EA_path)
+		free(data->EA_path);
 	ft_free_data_print_exit_1(data);
 	if (data->line)
 		free (data->line);

@@ -6,7 +6,7 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:30:40 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/18 17:53:48 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/19 16:42:18 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,11 @@ typedef struct s_data
 	double	ray_increment_angle;
 	double	ray_precision;
 	// ### Added Staff ###
+	char *NO_path;
+	char *EA_path;
+	char *SO_path;
+	char *WE_path;
+
 	int				w_img;
 	int				h_img;
 	char			*addr;
