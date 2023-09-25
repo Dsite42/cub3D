@@ -6,7 +6,7 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:58:42 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/19 17:02:11 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/25 15:17:20 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,30 +45,17 @@ static void	ft_free_data_print_exit_1(t_data *data)
 
 void	ft_free_data_print_exit(t_data *data, char *msg)
 {
-	if (data->NO_path)
-		free(data->NO_path);
-	if (data->SO_path)
-		free(data->SO_path);
-	if (data->WE_path)
-		free(data->WE_path);
-	if (data->EA_path)
-		free(data->EA_path);
+	if (data->no_path)
+		free(data->no_path);
+	if (data->so_path)
+		free(data->so_path);
+	if (data->we_path)
+		free(data->we_path);
+	if (data->ea_path)
+		free(data->ea_path);
 	ft_free_data_print_exit_1(data);
 	if (data->line)
 		free (data->line);
-	if (data->no_vptr)
-		mlx_destroy_image(data->mlx, data->no_vptr);
-	if (data->so_vptr)
-		mlx_destroy_image(data->mlx, data->so_vptr);
-	if (data->we_vptr)
-		mlx_destroy_image(data->mlx, data->we_vptr);
-	if (data->ea_vptr)
-		mlx_destroy_image(data->mlx, data->ea_vptr);
-	if (data->mlx)
-	{
-		mlx_destroy_display(data->mlx);
-		free (data->mlx);
-	}
 	ft_putstr_fd(msg, STDERR_FILENO);
 	exit (1);
 }
@@ -104,8 +91,4 @@ void	ft_free_tex(t_data *data)
 		i++;
 	}
 	free (data->tex);
-	mlx_destroy_image(data->mlx, data->no_ptr.img);
-	mlx_destroy_image(data->mlx, data->so_ptr.img);
-	mlx_destroy_image(data->mlx, data->we_ptr.img);
-	mlx_destroy_image(data->mlx, data->ea_ptr.img);
 }

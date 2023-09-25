@@ -6,7 +6,7 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 13:04:13 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/13 15:37:39 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/25 14:11:39 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,8 @@ void	ft_copy_table(t_data *data)
 ** within the specified elements*/
 void	ft_flood_fill(t_data *data, int x, int y, char *elements)
 {
-	if (x < 0 || x >= (data->bg_line + 2) || y < 0 || y >= (data->bg_column + 2))
+	if (x < 0 || x >= (data->bg_line + 2)
+		|| y < 0 || y >= (data->bg_column + 2))
 		return ;
 	if (data->map_flood[y][x] == '#')
 		ft_free_data_print_exit(data,

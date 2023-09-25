@@ -6,7 +6,7 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 15:59:15 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/15 13:13:50 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/25 15:17:53 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ void	init_data_pointers(t_data *data)
 	data->so_vptr = NULL;
 	data->we_vptr = NULL;
 	data->ea_vptr = NULL;
+	data->no_path = NULL;
+	data->we_path = NULL;
+	data->so_path = NULL;
+	data->ea_path = NULL;
 }
 
 void	init_data_structure(t_data *data, char *file)
@@ -32,7 +36,6 @@ void	init_data_structure(t_data *data, char *file)
 	int		i;
 
 	i = 0;
-	data->mlx = mlx_init();
 	init_data_pointers(data);
 	while (i < 6)
 		data->magic[i++] = 0;

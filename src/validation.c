@@ -6,7 +6,7 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 13:04:16 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/15 14:13:00 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/25 13:38:20 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ void	ft_validation(t_data *data)
 	int	i;
 
 	ft_check_map_extension(data, ".cub");
-
 	ft_check_fd(data);
 	ft_map_start_line(data);
 	ft_check_map_elements(data);

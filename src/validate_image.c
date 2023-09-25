@@ -6,24 +6,11 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 13:04:10 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/13 15:37:19 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/25 13:37:43 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
-
-void	*ft_load_image(t_data *data, char *file)
-{
-	void	*image;
-
-	file[((int)ft_strlen(file)) -1] = '\0';
-	image = mlx_xpm_file_to_image(data->mlx, file,
-		&data->tex_w, &data->tex_h);
-
-	if (!image)
-		ft_free_data_print_exit(data, "Error\n Failed to Load Image\n");
-	return (image);
-}
 
 /* This func checks the validity of each RGB color valure represented
 ** as a string, ensures each character in the RGB value is a digit and

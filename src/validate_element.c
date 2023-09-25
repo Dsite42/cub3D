@@ -6,7 +6,7 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 13:04:06 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/19 16:58:43 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/25 15:19:23 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,27 +65,31 @@ static void	ft_check_init_elements(t_data *data)
 {
 	if (ft_abs_compare("NO", data->generic[0]))
 	{
-		data->NO_path = (char *)malloc(sizeof(char) * (ft_strlen(data->generic[1]) + 1));
-		ft_strlcpy(data->NO_path, data->generic[1], ft_strlen(data->generic[1]) + 1);
-		data->no_vptr = ft_load_image(data, data->generic[1]);
+		data->no_path = (char *)malloc(sizeof(char)
+				* (ft_strlen(data->generic[1]) + 1));
+		ft_strlcpy(data->no_path, data->generic[1],
+			ft_strlen(data->generic[1]) + 1);
 	}
 	else if (ft_abs_compare("EA", data->generic[0]))
 	{
-		data->EA_path = (char *)malloc(sizeof(char) * (ft_strlen(data->generic[1]) + 1));
-		ft_strlcpy(data->EA_path, data->generic[1], ft_strlen(data->generic[1]) + 1);
-		data->ea_vptr = ft_load_image(data, data->generic[1]);
+		data->ea_path = (char *)malloc(sizeof(char)
+				* (ft_strlen(data->generic[1]) + 1));
+		ft_strlcpy(data->ea_path, data->generic[1],
+			ft_strlen(data->generic[1]) + 1);
 	}
 	else if (ft_abs_compare("SO", data->generic[0]))
 	{
-		data->SO_path = (char *)malloc(sizeof(char) * (ft_strlen(data->generic[1]) + 1));
-		ft_strlcpy(data->SO_path, data->generic[1], ft_strlen(data->generic[1]) + 1);
-		data->so_vptr = ft_load_image(data, data->generic[1]);
+		data->so_path = (char *)malloc(sizeof(char)
+				* (ft_strlen(data->generic[1]) + 1));
+		ft_strlcpy(data->so_path, data->generic[1],
+			ft_strlen(data->generic[1]) + 1);
 	}
 	else if (ft_abs_compare("WE", data->generic[0]))
 	{
-		data->WE_path = (char *)malloc(sizeof(char) * (ft_strlen(data->generic[1]) + 1));
-		ft_strlcpy(data->WE_path, data->generic[1], ft_strlen(data->generic[1]) + 1);
-		data->we_vptr = ft_load_image(data, data->generic[1]);
+		data->we_path = (char *)malloc(sizeof(char)
+				* (ft_strlen(data->generic[1]) + 1));
+		ft_strlcpy(data->we_path, data->generic[1],
+			ft_strlen(data->generic[1]) + 1);
 	}
 	else if (ft_abs_compare(data->generic[0], "F")
 		|| ft_abs_compare(data->generic[0], "C"))

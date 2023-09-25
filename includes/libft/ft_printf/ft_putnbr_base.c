@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cgodecke <cgodecke@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:28:53 by chris             #+#    #+#             */
-/*   Updated: 2023/03/27 18:30:16 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/25 13:42:05 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// This function ft_putnbr_base prints a number by converting it to an other 
+// This function ft_putnbr_base prints a number by converting it to an other
 // base system.
 // Return: None.
 
@@ -34,7 +34,7 @@ void	ft_putnbr_base(long double nb, char *base, size_t *cnt_out)
 	{
 		ft_put_single('-', cnt_out);
 		ft_putnbr_base(-nb, base, cnt_out);
-	}	
+	}
 	else if (ft_strncmp("0123456789abcdef", base, 16) == 0)
 		ft_putnbr_base(-nb, base, cnt_out);
 	else

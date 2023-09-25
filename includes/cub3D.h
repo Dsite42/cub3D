@@ -6,7 +6,7 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:30:40 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/19 16:42:18 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/25 15:20:38 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,12 @@
 # include <math.h>
 # include <stdlib.h>
 # include <stdbool.h>
-# include <float.h>
+// # include <float.h>
 # include <errno.h>
 
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include "../src/minilibx-linux/mlx.h"
-
 # define ROTRIGHT 65363
 # define ROTLEFT 65361
 # define UP 119
@@ -64,34 +63,26 @@ typedef struct s_teximg {
 
 typedef struct s_data
 {
-	//mlx
-	void	*mlx_ptr;
-	void	*win_ptr;
-	int		cur_img;
-
-	//map
-	int		map_colunms;
-	int		map_rows;
-	int		win_width;
-	int		win_height;
-
-	//raycaster
-	int		win_half_width;
-	int		win_half_height;
-	double 	FOV;
-	double 	half_FOV;
-	double 	player_x;
-	double 	player_y;
-	double 	player_angle;
-	double	ray_angle;
-	double	ray_increment_angle;
-	double	ray_precision;
-	// ### Added Staff ###
-	char *NO_path;
-	char *EA_path;
-	char *SO_path;
-	char *WE_path;
-
+	void			*mlx_ptr;
+	void			*win_ptr;
+	int				cur_img;
+	int				map_colunms;
+	int				map_rows;
+	int				win_width;
+	int				win_height;
+	int				win_half_width;
+	int				win_half_height;
+	double			half_fov;
+	double			player_x;
+	double			player_y;
+	double			player_angle;
+	double			ray_angle;
+	double			ray_increment_angle;
+	double			ray_precision;
+	char			*no_path;
+	char			*ea_path;
+	char			*so_path;
+	char			*we_path;
 	int				w_img;
 	int				h_img;
 	char			*addr;
@@ -101,7 +92,6 @@ typedef struct s_data
 	int				w_map;
 	int				h_map;
 	char			dir;
-	//float			fov;
 	float			dir_x;
 	float			dir_y;
 	float			plane_x;
@@ -137,7 +127,6 @@ typedef struct s_data
 	float			fov;
 	float			pos_x;
 	float			pos_y;
-	//int				t_teximg;
 	int				file_size;
 	int				bg_line;
 	int				bg_column;
@@ -164,54 +153,54 @@ typedef struct s_copy
 }		t_copy;
 
 // --> general.c
-bool		ft_abs_compare(char *s1, char *s2);
-bool		ft_is_line_space(char *str);
-bool		ft_reach_map(char *str);
-bool		ft_element_done(int *table);
-char		*ft_first_last_line(char *line, int size);
+bool	ft_abs_compare(char *s1, char *s2);
+bool	ft_is_line_space(char *str);
+bool	ft_reach_map(char *str);
+bool	ft_element_done(int *table);
+char	*ft_first_last_line(char *line, int size);
 
 // --> general_2.c
-int			ft_real_size(char *str);
+int		ft_real_size(char *str);
 void	ft_print_map(char **map);
 
 // --> init_1.c
-void		init_data_pointers(t_data *data);
-void		init_data_structure(t_data *data, char *file);
-void		init_dir_e_w(t_data *data);
-void		init_dir_n_s(t_data *data);
-void		init_dir(t_data *data);
+void	init_data_pointers(t_data *data);
+void	init_data_structure(t_data *data, char *file);
+void	init_dir_e_w(t_data *data);
+void	init_dir_n_s(t_data *data);
+void	init_dir(t_data *data);
 
 // --> init_2.c
-void		init_data(t_data	*data);
-//void		init_tex(t_data *img);
-int			*get_addr_tex_img(t_data *img, t_teximg *dir_ptr);
+void	init_data(t_data	*data);
+//void	init_tex(t_data *img);
+int		*get_addr_tex_img(t_data *img, t_teximg *dir_ptr);
 
 // --> validation.c
-void		ft_check_fd(t_data *data);
-void		ft_check_map_extension(t_data *data, const char *extension);
-void		ft_map_start_line(t_data *data);
-void		ft_validation(t_data *data);
+void	ft_check_fd(t_data *data);
+void	ft_check_map_extension(t_data *data, const char *extension);
+void	ft_map_start_line(t_data *data);
+void	ft_validation(t_data *data);
 
 // --> validation_element.c
-void		ft_check_map_elements(t_data *data);
-void		ft_check_value_elements(t_data *data);
+void	ft_check_map_elements(t_data *data);
+void	ft_check_value_elements(t_data *data);
 
 //--> validation_image.c
-void		*ft_load_image(t_data *data, char *file);
-void		ft_validation_fc_rgb(t_data *data);
+void	*ft_load_image(t_data *data, char *file);
+void	ft_validation_fc_rgb(t_data *data);
 
 // --> validation_map.c
-void		ft_check_map_size(t_data *data, int fd);
-void		ft_check_map_tiles(t_data *data);
-void		ft_copy_table(t_data *data);
-void		ft_flood_fill(t_data *data, int x, int y, char *elements);
+void	ft_check_map_size(t_data *data, int fd);
+void	ft_check_map_tiles(t_data *data);
+void	ft_copy_table(t_data *data);
+void	ft_flood_fill(t_data *data, int x, int y, char *elements);
 
 // --> free.c
-void		ft_free_table(char **table);
-void		ft_free_data_print_exit(t_data *data, char *msg);
-void		ft_free_data(t_data *data);
-void		ft_free_tex(t_data *data);
+void	ft_free_table(char **table);
+void	ft_free_data_print_exit(t_data *data, char *msg);
+void	ft_free_data(t_data *data);
+void	ft_free_tex(t_data *data);
 
 // --> map_file.c
-void		ft_handle_map_cp(t_data *data);
+void	ft_handle_map_cp(t_data *data);
 #endif
