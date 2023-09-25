@@ -6,7 +6,7 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 13:04:06 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/25 15:19:23 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/25 17:25:54 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,37 +60,25 @@ void	ft_check_map_elements(t_data *data)
 	}
 }
 
+static void	get_path(t_data *data, char **xx_path)
+{
+	*xx_path = (char *)malloc(sizeof(char)
+			* (ft_strlen(data->generic[1]) + 1));
+	ft_strlcpy(*xx_path, data->generic[1],
+		ft_strlen(data->generic[1]) + 1);
+}
+
 /* Here we load images based on the confihurated values*/
 static void	ft_check_init_elements(t_data *data)
 {
 	if (ft_abs_compare("NO", data->generic[0]))
-	{
-		data->no_path = (char *)malloc(sizeof(char)
-				* (ft_strlen(data->generic[1]) + 1));
-		ft_strlcpy(data->no_path, data->generic[1],
-			ft_strlen(data->generic[1]) + 1);
-	}
+		get_path(data, &(data->no_path));
 	else if (ft_abs_compare("EA", data->generic[0]))
-	{
-		data->ea_path = (char *)malloc(sizeof(char)
-				* (ft_strlen(data->generic[1]) + 1));
-		ft_strlcpy(data->ea_path, data->generic[1],
-			ft_strlen(data->generic[1]) + 1);
-	}
+		get_path(data, &(data->ea_path));
 	else if (ft_abs_compare("SO", data->generic[0]))
-	{
-		data->so_path = (char *)malloc(sizeof(char)
-				* (ft_strlen(data->generic[1]) + 1));
-		ft_strlcpy(data->so_path, data->generic[1],
-			ft_strlen(data->generic[1]) + 1);
-	}
+		get_path(data, &(data->so_path));
 	else if (ft_abs_compare("WE", data->generic[0]))
-	{
-		data->we_path = (char *)malloc(sizeof(char)
-				* (ft_strlen(data->generic[1]) + 1));
-		ft_strlcpy(data->we_path, data->generic[1],
-			ft_strlen(data->generic[1]) + 1);
-	}
+		get_path(data, &(data->we_path));
 	else if (ft_abs_compare(data->generic[0], "F")
 		|| ft_abs_compare(data->generic[0], "C"))
 		ft_validation_fc_rgb(data);

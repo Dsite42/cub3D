@@ -6,7 +6,7 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:58:42 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/25 15:17:20 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/25 17:41:52 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,19 +76,4 @@ void	ft_free_data(t_data *data)
 		ft_free_table(data->map_cp);
 	if (data->map_flood)
 		ft_free_table(data->map_flood);
-}
-
-void	ft_free_tex(t_data *data)
-{
-	int	i;
-
-	i = 0;
-	if (!data->tex)
-		return ;
-	while (i < 4)
-	{
-		free (data->tex[i]);
-		i++;
-	}
-	free (data->tex);
 }

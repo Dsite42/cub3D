@@ -6,12 +6,12 @@
 #    By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/18 15:39:27 by cgodecke          #+#    #+#              #
-#    Updated: 2023/09/25 13:26:13 by ankinzin         ###   ########.fr        #
+#    Updated: 2023/09/25 17:42:09 by ankinzin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CC_FLAGS = -Wall -Wextra -g #-fsanitize=address
+CC_FLAGS = -Wall -Wextra -g -fsanitize=address
 OBJDIR = obj
 HEADER := includes/cub3D.h
 LIBFTDIR := includes/libft
@@ -21,7 +21,6 @@ INFILES = 	src/main.c \
 			src/general.c \
 			src/general1.c \
 			src/init_1.c \
-			src/init_2.c \
 			src/map_file.c \
 			src/validate_element.c \
 			src/validate_image.c \

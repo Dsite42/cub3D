@@ -6,7 +6,7 @@
 /*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:30:40 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/25 15:20:38 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/25 17:46:29 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,7 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include "../src/minilibx-linux/mlx.h"
-# define ROTRIGHT 65363
-# define ROTLEFT 65361
-# define UP 119
-# define DOWN 115
-# define LEFT 97
-# define RIGHT 100
-# define ESC 65307
+
 # define TABSIZE 8
 
 typedef struct s_iso_res {
@@ -53,19 +47,11 @@ enum e_texEnum{
 	EAST
 };
 
-typedef struct s_teximg {
-	void	*img;
-	char	*addr;
-	int		bpp;
-	int		line_l;
-	int		endian;
-}	t_teximg;
-
 typedef struct s_data
 {
+	// raycaster
 	void			*mlx_ptr;
 	void			*win_ptr;
-	int				cur_img;
 	int				map_colunms;
 	int				map_rows;
 	int				win_width;
@@ -73,45 +59,27 @@ typedef struct s_data
 	int				win_half_width;
 	int				win_half_height;
 	double			half_fov;
-	double			player_x;
-	double			player_y;
 	double			player_angle;
 	double			ray_angle;
 	double			ray_increment_angle;
 	double			ray_precision;
+	void			*mlx;
+	void			*mlx_win;
+	void			*img;
+	float			fov;
+
+	// parsing
+	double			player_x;
+	double			player_y;
 	char			*no_path;
 	char			*ea_path;
 	char			*so_path;
 	char			*we_path;
-	int				w_img;
-	int				h_img;
-	char			*addr;
-	int				bpp;
-	int				line_l;
-	int				endian;
-	int				w_map;
-	int				h_map;
 	char			dir;
 	float			dir_x;
 	float			dir_y;
 	float			plane_x;
 	float			plane_y;
-	int				tex_w;
-	int				tex_h;
-	int				**tex;
-	t_teximg		no_ptr;
-	t_teximg		so_ptr;
-	t_teximg		we_ptr;
-	t_teximg		ea_ptr;
-	int				left;
-	int				right;
-	int				up;
-	int				down;
-	int				rotleft;
-	int				rotright;
-	void			*mlx;
-	void			*mlx_win;
-	void			*img;
 	char			**rgb;
 	char			**generic;
 	char			**elements;
@@ -124,7 +92,6 @@ typedef struct s_data
 	void			*we_vptr;
 	void			*ea_vptr;
 	char			*file;
-	float			fov;
 	float			pos_x;
 	float			pos_y;
 	int				file_size;
@@ -172,8 +139,6 @@ void	init_dir(t_data *data);
 
 // --> init_2.c
 void	init_data(t_data	*data);
-//void	init_tex(t_data *img);
-int		*get_addr_tex_img(t_data *img, t_teximg *dir_ptr);
 
 // --> validation.c
 void	ft_check_fd(t_data *data);
