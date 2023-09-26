@@ -6,11 +6,11 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 10:37:13 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/08 10:15:44 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/26 09:36:17 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3D.h"
+#include "../../includes/cub3D.h"
 
 int	window_close(t_data *data, int error_code)
 {

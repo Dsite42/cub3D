@@ -6,11 +6,11 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 10:34:59 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/05 17:03:28 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/26 09:35:50 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3D.h"
+#include "../../includes/cub3D.h"
 
 double	unit_ray_y_length(t_data *data)
 {

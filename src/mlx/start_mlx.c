@@ -6,11 +6,11 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 10:40:25 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/12 14:48:13 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/26 09:36:15 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3D.h"
+#include "../../includes/cub3D.h"
 
 static void	load_textures(t_data *data)
 {

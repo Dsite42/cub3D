@@ -6,11 +6,11 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 10:31:45 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/06 09:18:08 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/26 09:35:42 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3D.h"
+#include "../../includes/cub3D.h"
 
 static double	ray_x_dx_start(t_data *data)
 {
