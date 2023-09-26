@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:30:40 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/26 11:36:24 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/26 13:45:23 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <math.h>
 # include <stdlib.h>
 # include <stdbool.h>
-// # include <float.h>
+# include <float.h>
 # include <errno.h>
 
 # include <X11/X.h>

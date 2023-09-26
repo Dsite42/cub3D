@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 10:45:15 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/26 09:36:07 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/26 14:19:52 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ static int	is_wall(t_data *data, double step_factor, double player_angle)
 
 	x = data->player_x + cos(deg_to_rad(player_angle)) * step_factor;
 	y = data->player_y - sin(deg_to_rad(player_angle)) * step_factor;
-	return (map[(int)(floor(y))][(int)(floor(x))]);
+	return (data->map_flood[(int)(floor(y))][(int)(floor(x))] - 48);
 }
 
 static void	go_step(t_data *data, double step_factor, double player_angle)
 {
-	if (is_wall(data, step_factor, player_angle) == 0)
+	if (is_wall(data, step_factor, player_angle) == 0 || is_wall(data, step_factor, player_angle) == 40)
 	{
 		data->player_x += cos(deg_to_rad(player_angle)) * step_factor;
 		data->player_y -= sin(deg_to_rad(player_angle)) * step_factor;

@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 13:04:16 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/26 09:17:06 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/26 13:41:00 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,6 @@ void	ft_validation(t_data *data)
 	ft_handle_map_cp(data);
 	ft_check_map_tiles(data);
 	ft_copy_table(data);
-	ft_print_map(data->map_flood);
+	ft_print_map(data->map_cp);
 	ft_flood_fill(data, data->player_x, data->player_y, "NSEW0");
 }

@@ -6,11 +6,13 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 11:24:03 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/26 11:45:02 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/26 14:16:40 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
+
+ 
 
 static double	get_player_angle(t_data *data)
 {
@@ -29,4 +31,13 @@ void	interface(t_data *data)
 	data->player_x += 0.5;
 	data->player_y += 0.5;
 	data->player_angle = get_player_angle(data);
+
+ft_print_map(data->map_flood);
+printf("wall:%c\n", (char)(data->map_flood[5][8]) - 0);
+//int i = 0;
+//while(map[i] != NULL)
+//{
+//	printf("map_test:%s\n", data->map_flood[i]);
+//	i++;
+//}
 }

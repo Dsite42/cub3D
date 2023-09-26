@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 10:47:18 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/26 10:30:10 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/26 14:17:14 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static double	find_wall_distance(t_data *data, int *i, int *j, int *wall)
 {
 	double	distance;
 
-	while (*wall == 0)
+	while (*wall == 0 || *wall == 'X' - 48)
 	{
 		if (data->ray_angle >= 0 && data->ray_angle < 90)
 			distance = ray_q1(data, i, j, wall);
