@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:29:03 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/26 09:51:12 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/26 10:17:11 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ void	zero_struct_data(t_data *data)
 	//raycaster
 	data->mlx.win_img.width = 1280;
 	data->mlx.win_img.height = 960;
-	data->FOV = 60;
-	data->half_FOV = data->FOV / 2;
+	data->fov = 60;
+	data->half_FOV = data->fov / 2;
 	data->player_x = 2.4;
 	data->player_y = 2.7;
 	data->player_angle = 45;
 	data->ray_angle = 0;
-	data->ray_increment_angle = data->FOV / data->mlx.win_img.width;
+	data->ray_increment_angle = data->fov / data->mlx.win_img.width;
 	data->sky_direction = 0;
 }
 
@@ -60,8 +60,9 @@ int	main(int argc, char **argv)
 	printf("ea_path:%s\n", data.ea_path);
 	printf("so_path:%s\n", data.so_path);
 	printf("we_path:%s\n", data.we_path);
+	printf("player_x:%f player_y:%f\n", data.player_x, data.player_y);
+
 	ft_putstr_fd("\n\n>>> VALIDATION OK! <<<\n", 1);
-	ft_free_data_print_exit(&data, "Freed alles\n");
 
 	
 	start_mlx(&data);
@@ -70,5 +71,6 @@ int	main(int argc, char **argv)
 	mlx_hook(data.mlx.win_ptr, DestroyNotify,
 		StructureNotifyMask, &window_close, &data);
 	mlx_loop(data.mlx.mlx_ptr);
+	ft_free_data_print_exit(&data, "Freed alles\n");
 	return (0);
 }

@@ -6,12 +6,12 @@
 #    By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/18 15:39:27 by cgodecke          #+#    #+#              #
-#    Updated: 2023/09/26 09:45:15 by cgodecke         ###   ########.fr        #
+#    Updated: 2023/09/26 10:14:16 by cgodecke         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CC_FLAGS = -Wall -Wextra  #-fsanitize=address -g3 #-Werror
+CC_FLAGS = -Wall -Wextra -g -fsanitize=address #-Werror
 OBJDIR = obj
 HEADER := includes/cub3D.h
 LIBFTDIR := includes/libft
