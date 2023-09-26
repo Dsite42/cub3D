@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 13:04:16 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/25 13:38:20 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/26 09:17:06 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#include "../../includes/cub3D.h"
 
 /* This func reads lines from a file descritor, duplicates each line, and stores
 ** the dup lines in a 2D array of strings*/

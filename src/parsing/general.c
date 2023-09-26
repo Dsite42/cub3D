@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   general.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 15:28:28 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/15 14:27:52 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/26 09:16:19 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#include "../../includes/cub3D.h"
 
 bool	ft_abs_compare(char *s1, char *s2)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   validate_image.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 13:04:10 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/25 13:37:43 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/26 09:16:59 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#include "../../includes/cub3D.h"
 
 /* This func checks the validity of each RGB color valure represented
 ** as a string, ensures each character in the RGB value is a digit and

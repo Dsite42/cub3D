@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   validate_element.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 13:04:06 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/25 17:25:54 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/26 09:16:56 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#include "../../includes/cub3D.h"
 
 /* This func is handling the parse and validation of elements from a line of
 ** input, checking errors related ro the numbre of elements, invalid

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init_1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 15:59:15 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/25 17:46:10 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/26 09:16:51 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#include "../../includes/cub3D.h"
 
 void	init_data_pointers(t_data *data)
 {

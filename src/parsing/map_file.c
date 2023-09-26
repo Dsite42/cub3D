@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   map_file.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 12:29:32 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/15 13:14:28 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/26 09:16:54 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#include "../../includes/cub3D.h"
 
 static void	ft_handle_copy_2(t_copy *this)
 {
