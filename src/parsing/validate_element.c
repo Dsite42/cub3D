@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 13:04:06 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/26 09:16:56 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/26 11:09:26 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ void	ft_check_map_elements(t_data *data)
 static void	get_path(t_data *data, char **xx_path)
 {
 	*xx_path = (char *)malloc(sizeof(char)
-			* (ft_strlen(data->generic[1]) + 1));
+			* (ft_strlen(data->generic[1])));
 	ft_strlcpy(*xx_path, data->generic[1],
-		ft_strlen(data->generic[1]) + 1);
+		ft_strlen(data->generic[1]));
 }
 
 /* Here we load images based on the confihurated values*/

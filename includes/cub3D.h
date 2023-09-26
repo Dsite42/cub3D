@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:30:40 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/26 10:30:04 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/26 11:36:24 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -229,6 +229,7 @@ double	ray_q4(t_data *data, int *i, int *j, int *wall);
 double	unit_ray_x_length(t_data *data);
 double	unit_ray_y_length(t_data *data);
 void	draw_texture(t_data *data, int y0, int y1);
+void	interface(t_data *data);
 
 
 

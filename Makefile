@@ -6,7 +6,7 @@
 #    By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/18 15:39:27 by cgodecke          #+#    #+#              #
-#    Updated: 2023/09/26 10:14:16 by cgodecke         ###   ########.fr        #
+#    Updated: 2023/09/26 11:27:11 by cgodecke         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ INFILES = 	src/main.c \
 					src/raycaster/unit_ray_x_length.c\
 					src/raycaster/unit_ray_y_length.c\
 					src/raycaster/draw_texture.c\
+					src/raycaster/interface.c\
 						src/mlx/handle_keypress.c\
 						src/mlx/start_mlx.c\
 						src/mlx/window_close.c\

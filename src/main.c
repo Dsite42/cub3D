@@ -6,12 +6,11 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:29:03 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/26 10:17:11 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/09/26 11:36:39 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
-
 
 void	zero_struct_data(t_data *data)
 {
@@ -41,6 +40,7 @@ void	zero_struct_data(t_data *data)
 	data->sky_direction = 0;
 }
 
+
 int	main(int argc, char **argv)
 {
 	t_data	data;
@@ -61,10 +61,13 @@ int	main(int argc, char **argv)
 	printf("so_path:%s\n", data.so_path);
 	printf("we_path:%s\n", data.we_path);
 	printf("player_x:%f player_y:%f\n", data.player_x, data.player_y);
+	printf("dir:%c dir_x:%f dir_y:%f\n", data.dir, data.dir_x, data.dir_x);
 
 	ft_putstr_fd("\n\n>>> VALIDATION OK! <<<\n", 1);
 
-	
+
+	interface(&data);
+
 	start_mlx(&data);
 	mlx_loop_hook(data.mlx.mlx_ptr, &render_image, &data);
 	mlx_hook(data.mlx.win_ptr, KeyPress, KeyPressMask, &handle_keypress, &data);
