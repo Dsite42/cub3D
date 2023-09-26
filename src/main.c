@@ -3,29 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:29:03 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/25 15:21:42 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/09/26 09:51:12 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
 
+
 void	zero_struct_data(t_data *data)
 {
-	data->win_width = 1920;
-	data->win_height = 1080;
-	data->win_half_width = data->win_width / 2;
-	data->win_half_height = data->win_height / 2;
-	data->fov = 60;
-	data->half_fov = data->fov / 2;
-	data->player_x = 3.50;
-	data->player_y = 8.50;
+	// mlx
+	data->mlx.mlx_ptr = NULL;
+	data->mlx.win_ptr = NULL;
+	data->mlx.win_img = (t_img){NULL, NULL, 0, 0, 0, 0, 0};
+	data->mlx.north_img = (t_img){NULL, NULL, 0, 0, 0, 0, 0};
+	data->mlx.east_img = (t_img){NULL, NULL, 0, 0, 0, 0, 0};
+	data->mlx.south_img = (t_img){NULL, NULL, 0, 0, 0, 0, 0};
+	data->mlx.west_img = (t_img){NULL, NULL, 0, 0, 0, 0, 0};
+
+	// map
+	data->map_rows = 10;
+	data->map_columns = 10;
+	
+	//raycaster
+	data->mlx.win_img.width = 1280;
+	data->mlx.win_img.height = 960;
+	data->FOV = 60;
+	data->half_FOV = data->FOV / 2;
+	data->player_x = 2.4;
+	data->player_y = 2.7;
 	data->player_angle = 45;
 	data->ray_angle = 0;
-	data->ray_increment_angle = data->fov / data->win_width;
-	data->ray_precision = 128;
+	data->ray_increment_angle = data->FOV / data->mlx.win_img.width;
+	data->sky_direction = 0;
 }
 
 int	main(int argc, char **argv)
@@ -49,5 +62,13 @@ int	main(int argc, char **argv)
 	printf("we_path:%s\n", data.we_path);
 	ft_putstr_fd("\n\n>>> VALIDATION OK! <<<\n", 1);
 	ft_free_data_print_exit(&data, "Freed alles\n");
+
+	
+	start_mlx(&data);
+	mlx_loop_hook(data.mlx.mlx_ptr, &render_image, &data);
+	mlx_hook(data.mlx.win_ptr, KeyPress, KeyPressMask, &handle_keypress, &data);
+	mlx_hook(data.mlx.win_ptr, DestroyNotify,
+		StructureNotifyMask, &window_close, &data);
+	mlx_loop(data.mlx.mlx_ptr);
 	return (0);
 }

@@ -6,26 +6,40 @@
 #    By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/18 15:39:27 by cgodecke          #+#    #+#              #
-#    Updated: 2023/09/26 09:15:43 by cgodecke         ###   ########.fr        #
+#    Updated: 2023/09/26 09:45:15 by cgodecke         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CC_FLAGS = -Wall -Wextra -g -fsanitize=address
+CC_FLAGS = -Wall -Wextra  #-fsanitize=address -g3 #-Werror
 OBJDIR = obj
 HEADER := includes/cub3D.h
 LIBFTDIR := includes/libft
 LIBFT := libft.a
 INFILES = 	src/main.c \
-			src/parsing/free.c \
-			src/parsing/general.c \
-			src/parsing/general1.c \
-			src/parsing/init_1.c \
-			src/parsing/map_file.c \
-			src/parsing/validate_element.c \
-			src/parsing/validate_image.c \
-			src/parsing/validate_map.c \
-			src/parsing/validation.c \
+				src/parsing/free.c \
+				src/parsing/general.c \
+				src/parsing/general1.c \
+				src/parsing/init_1.c \
+				src/parsing/map_file.c \
+				src/parsing/validate_element.c \
+				src/parsing/validate_image.c \
+				src/parsing/validate_map.c \
+				src/parsing/validation.c \
+					src/raycaster/render_image.c\
+					src/raycaster/draw_line.c\
+					src/raycaster/deg_to_rad.c\
+					src/raycaster/ray_q1.c\
+					src/raycaster/ray_q2.c\
+					src/raycaster/ray_q3.c\
+					src/raycaster/ray_q4.c\
+					src/raycaster/unit_ray_x_length.c\
+					src/raycaster/unit_ray_y_length.c\
+					src/raycaster/draw_texture.c\
+						src/mlx/handle_keypress.c\
+						src/mlx/start_mlx.c\
+						src/mlx/window_close.c\
+						src/mlx/img_pix_put.c\
 
 OBJFILES = $(INFILES:%.c=$(OBJDIR)/%.o)
 
@@ -47,10 +61,11 @@ setup:
 	@mkdir -p $(OBJDIR)
 	@mkdir -p $(OBJDIR)/src
 	@mkdir -p $(OBJDIR)/src/parsing
-
+	@mkdir -p $(OBJDIR)/src/raycaster
+	@mkdir -p $(OBJDIR)/src/mlx
 
 clean:
-	make clean -C includes/libft
+	make clean -C includes/libft 
 	make clean -C includes/minilibx-linux
 	rm -f $(OBJFILES)
 	rm -r -f obj/
