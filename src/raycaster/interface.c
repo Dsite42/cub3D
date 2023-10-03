@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 11:24:03 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/26 18:17:11 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/03 15:50:39 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	interface(t_data *data)
 {
 	data->player_x += 0.5;
 	data->player_y += 0.5;
-	data->player_angle = get_player_angle(data) - 2;
+	data->player_angle = get_player_angle(data);
 
 ft_print_map(data->map_flood);
 printf("wall:%c\n", (char)(data->map_flood[5][8]) - 0);
