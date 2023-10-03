@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 10:45:15 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/10/03 16:54:00 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/03 17:32:15 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,21 @@ static int	is_wall(t_data *data, double step_factor, double player_angle)
 
 static void	go_step(t_data *data, double step_factor, double player_angle)
 {
+	double	x;
+	double	y;
+
+	x = data->player_x + cos(deg_to_rad(player_angle)) * step_factor;
+	y = data->player_y - sin(deg_to_rad(player_angle)) * step_factor;
 	if (is_wall(data, step_factor, player_angle) == 0 || is_wall(data, step_factor, player_angle) == 40)
 	{
-		data->player_x += cos(deg_to_rad(player_angle)) * step_factor;
-		data->player_y -= sin(deg_to_rad(player_angle)) * step_factor;
+		if (x - floorf(x) < 0.001)
+			data->player_x += cos(deg_to_rad(player_angle)) * step_factor * 1.01;
+		else
+			data->player_x = x;
+		if (y - floorf(y) < 0.001)
+			data->player_y -= sin(deg_to_rad(player_angle)) * step_factor * 1.01;
+		else
+			data->player_y = y;
 	}
 }
 
@@ -47,7 +58,7 @@ int	handle_keypress(int keysym, t_data *data)
 {
 	double	step_factor;
 
-	step_factor = 0.15;
+	step_factor = 0.13;
 	if (keysym == XK_Escape)
 		window_close(data, 0);
 	else if (keysym == XK_Left)

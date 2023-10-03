@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 10:31:45 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/26 14:00:43 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/03 17:30:31 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ double	ray_q1(t_data *data, int *i, int *j, int *wall)
 		* fabs(unit_ray_x_length(data));
 	ray_y_length = 1.0000001 * ray_y_sy_start + *j
 		* fabs(unit_ray_y_length(data));
+	//printf("ray_x_length:%f ray_y_length:%f ray_x_dx_start:%f ray_y_dy_start:%f\n", ray_x_length, ray_y_length, ray_x_dx_start(data), ray_y_dy_start(data));
 	if (ray_x_length < ray_y_length)
 		distance = appy_shorter_x_ray(data, ray_x_length, i, wall);
 	else
