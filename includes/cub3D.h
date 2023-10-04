@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:30:40 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/26 13:45:23 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/04 09:31:42 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@
 # define MLX_ERROR 30
 # define CEILING_COLOR 0x0000FF
 # define FLOOR_COLOR 3110932
-
-extern int map[30][30];
 
 // parsing
 typedef struct s_iso_res {

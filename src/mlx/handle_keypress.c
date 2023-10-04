@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 10:45:15 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/10/04 09:19:56 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/04 09:28:15 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ static int	is_wall(t_data *data, double step_factor, double player_angle)
 
 	x = data->player_x + cos(deg_to_rad(player_angle)) * step_factor;
 	y = data->player_y - sin(deg_to_rad(player_angle)) * step_factor;
-
 	if (x - floorf(x) < 0.001)
 		x = data->player_x
 			+ cos(deg_to_rad(player_angle)) * step_factor * 1.0001;
@@ -41,14 +40,17 @@ static void	go_step(t_data *data, double step_factor, double player_angle)
 
 	x = data->player_x + cos(deg_to_rad(player_angle)) * step_factor;
 	y = data->player_y - sin(deg_to_rad(player_angle)) * step_factor;
-	if (is_wall(data, step_factor, player_angle) == 0 || is_wall(data, step_factor, player_angle) == 40)
+	if (is_wall(data, step_factor, player_angle) == 0
+		|| is_wall(data, step_factor, player_angle) == 40)
 	{
 		if (x - floorf(x) < 0.001)
-			data->player_x += cos(deg_to_rad(player_angle)) * step_factor * 1.01;
+			data->player_x += cos(deg_to_rad(player_angle))
+				* step_factor * 1.01;
 		else
 			data->player_x = x;
 		if (y - floorf(y) < 0.001)
-			data->player_y -= sin(deg_to_rad(player_angle)) * step_factor * 1.01;
+			data->player_y -= sin(deg_to_rad(player_angle))
+				* step_factor * 1.01;
 		else
 			data->player_y = y;
 	}
@@ -77,6 +79,5 @@ int	handle_keypress(int keysym, t_data *data)
 		go_step(data, step_factor, (int)(data->player_angle + 90) % 360);
 	else if (keysym == XK_d)
 		go_step(data, step_factor, (int)(data->player_angle - 90) % 360);
-
 	return (0);
 }

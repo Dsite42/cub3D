@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 10:40:25 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/26 11:12:09 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/04 09:30:34 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,18 @@
 
 static void	load_textures(t_data *data)
 {
-	data->mlx.north_img.mlx_img = mlx_xpm_file_to_image(data->mlx.mlx_ptr, data->no_path,
-			&data->mlx.north_img.width, &data->mlx.north_img.height);
-	data->mlx.east_img.mlx_img = mlx_xpm_file_to_image(data->mlx.mlx_ptr, data->ea_path,
-			&data->mlx.east_img.width, &data->mlx.east_img.height);
-	data->mlx.south_img.mlx_img = mlx_xpm_file_to_image(data->mlx.mlx_ptr, data->so_path,
-			&data->mlx.south_img.width, &data->mlx.south_img.height);
-	data->mlx.west_img.mlx_img = mlx_xpm_file_to_image(data->mlx.mlx_ptr, data->we_path,
-			&data->mlx.west_img.width, &data->mlx.west_img.height);
+	data->mlx.north_img.mlx_img = mlx_xpm_file_to_image(data->mlx.mlx_ptr,
+			data->no_path, &data->mlx.north_img.width,
+			&data->mlx.north_img.height);
+	data->mlx.east_img.mlx_img = mlx_xpm_file_to_image(data->mlx.mlx_ptr,
+			data->ea_path, &data->mlx.east_img.width,
+			&data->mlx.east_img.height);
+	data->mlx.south_img.mlx_img = mlx_xpm_file_to_image(data->mlx.mlx_ptr,
+			data->so_path, &data->mlx.south_img.width,
+			&data->mlx.south_img.height);
+	data->mlx.west_img.mlx_img = mlx_xpm_file_to_image(data->mlx.mlx_ptr,
+			data->we_path, &data->mlx.west_img.width,
+			&data->mlx.west_img.height);
 	if (data->mlx.north_img.mlx_img == NULL
 		|| data->mlx.east_img.mlx_img == NULL
 		|| data->mlx.south_img.mlx_img == NULL

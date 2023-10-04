@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:29:03 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/26 11:36:39 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/04 09:39:51 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,9 @@ void	zero_struct_data(t_data *data)
 	data->mlx.east_img = (t_img){NULL, NULL, 0, 0, 0, 0, 0};
 	data->mlx.south_img = (t_img){NULL, NULL, 0, 0, 0, 0, 0};
 	data->mlx.west_img = (t_img){NULL, NULL, 0, 0, 0, 0, 0};
-
 	// map
 	data->map_rows = 10;
 	data->map_columns = 10;
-	
 	//raycaster
 	data->mlx.win_img.width = 1280;
 	data->mlx.win_img.height = 960;
@@ -39,7 +37,6 @@ void	zero_struct_data(t_data *data)
 	data->ray_increment_angle = data->fov / data->mlx.win_img.width;
 	data->sky_direction = 0;
 }
-
 
 int	main(int argc, char **argv)
 {
@@ -64,7 +61,6 @@ int	main(int argc, char **argv)
 	printf("dir:%c dir_x:%f dir_y:%f\n", data.dir, data.dir_x, data.dir_x);
 
 	ft_putstr_fd("\n\n>>> VALIDATION OK! <<<\n", 1);
-
 
 	interface(&data);
 

@@ -6,13 +6,11 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 11:24:03 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/10/03 17:31:21 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/04 09:39:00 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
-
- 
 
 static double	get_player_angle(t_data *data)
 {

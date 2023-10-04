@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 10:31:45 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/10/03 17:30:31 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/04 09:38:29 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ static double	appy_shorter_x_ray(t_data *data, double ray_x_length,
 		+ fabs(ray_x_length * cos(deg_to_rad(data->ray_angle)));
 	data->ray_y = data->player_y
 		- fabs(ray_x_length * sin(deg_to_rad(data->ray_angle)));
-	*wall = data->map_flood[(int)floor(data->ray_y)][(int)floor(data->ray_x)] - 48;
+	*wall = data->map_flood[(int)floor(data->ray_y)]
+	[(int)floor(data->ray_x)] - '0';
 	data->sky_direction = EAST;
 	*i = *i + 1;
 	return (ray_x_length);
@@ -38,11 +39,12 @@ static double	appy_shorter_x_ray(t_data *data, double ray_x_length,
 static double	appy_shorter_y_ray(t_data *data, double ray_y_length,
 		int *j, int *wall)
 {
-	data->ray_x = data->player_x 
+	data->ray_x = data->player_x
 		+ fabs(1.0 * ray_y_length * cos(deg_to_rad(data->ray_angle)));
-	data->ray_y = data->player_y 
+	data->ray_y = data->player_y
 		- fabs(1.0 * ray_y_length * sin(deg_to_rad(data->ray_angle)));
-	*wall = data->map_flood[(int)floor(data->ray_y)][(int)floor(data->ray_x)] - 48;
+	*wall = data->map_flood[(int)floor(data->ray_y)]
+	[(int)floor(data->ray_x)] - '0';
 	data->sky_direction = NORTH;
 	*j = *j + 1;
 	return (ray_y_length);
