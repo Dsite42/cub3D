@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 10:45:15 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/10/03 17:32:15 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/04 09:19:56 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	handle_keypress(int keysym, t_data *data)
 {
 	double	step_factor;
 
-	step_factor = 0.13;
+	step_factor = 0.1333;
 	if (keysym == XK_Escape)
 		window_close(data, 0);
 	else if (keysym == XK_Left)

@@ -6,7 +6,7 @@
 #    By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/18 15:39:27 by cgodecke          #+#    #+#              #
-#    Updated: 2023/09/26 11:27:11 by cgodecke         ###   ########.fr        #
+#    Updated: 2023/10/03 15:47:04 by cgodecke         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ library:
 	make -C includes/minilibx-linux
 
 $(NAME): $(OBJFILES) ${HEADER}
-	$(CC) $(CC_FLAGS) $(INFILES) -o $(NAME) includes/libft/libft.a includes/minilibx-linux/libmlx.a includes/minilibx-linux/libmlx_Darwin.a -I/usr/X11/include -L/usr/X11/lib -lX11 -lXext -lm
+	$(CC) $(CC_FLAGS) $(INFILES) -o $(NAME) includes/libft/libft.a includes/minilibx-linux/libmlx.a includes/minilibx-linux/libmlx_Linux.a -I/usr/X11/include -L/usr/X11/lib -lX11 -lXext -lm
 
 $(OBJDIR)/%.o: %.c
 	$(CC) $(CC_FLAGS) -c $< -o $@ -I/usr/X11/include
