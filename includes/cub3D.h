@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:30:40 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/10/04 09:31:42 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/04 11:24:25 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <stdbool.h>
 # include <float.h>
 # include <errno.h>
+#include <stdint.h>
 
 # include <X11/X.h>
 # include <X11/keysym.h>
@@ -150,6 +151,8 @@ typedef struct s_data
 	unsigned char	c_r;
 	unsigned char	c_g;
 	unsigned char	c_b;
+	uint32_t		ceiling_color;
+	uint32_t		floor_color;
 }	t_data;
 
 // --> general.c

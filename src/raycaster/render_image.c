@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 10:47:18 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/10/04 09:31:27 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/04 11:30:49 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ static double	find_wall_distance(t_data *data, int *i, int *j, int *wall)
 static void	draw(t_data *data)
 {
 	draw_line(data, 0, (data->mlx.win_img.height / 2)
-		- data->wall_height / 2, CEILING_COLOR);
+		- data->wall_height / 2, data->ceiling_color);
 	draw_line(data, (data->mlx.win_img.height / 2) + data->wall_height
-		/ 2, data->mlx.win_img.height, FLOOR_COLOR);
+		/ 2, data->mlx.win_img.height, data->floor_color);
 	if (data->wall_height < data->mlx.win_img.height)
 		draw_texture(data, (data->mlx.win_img.height / 2)
 			- data->wall_height / 2, (data->mlx.win_img.height / 2)

@@ -3,8 +3,8 @@ WE ./textures/Dsite42_800x800.xpm
 SO ./textures/Dsite42_800x800.xpm
 EA ./textures/Dsite42_800x800.xpm
 
-F 220,100,0
-C 225,30,0
+F 0,0,0
+C 100,100,100
 
 1111111111
 1001000001
