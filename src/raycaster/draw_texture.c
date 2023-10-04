@@ -6,13 +6,13 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 09:26:32 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/26 09:35:30 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/04 10:43:49 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-static void	draw_north_south_texture(t_data *data, t_img *img, int y0, int y1)
+static void	draw_north_texture(t_data *data, t_img *img, int y0, int y1)
 {
 	int		img_row;
 	int		x;
@@ -33,7 +33,49 @@ static void	draw_north_south_texture(t_data *data, t_img *img, int y0, int y1)
 	}
 }
 
-static void	draw_east_west_texture(t_data *data, t_img *img, int y0, int y1)
+static void	draw_south_texture(t_data *data, t_img *img, int y0, int y1)
+{
+	int		img_row;
+	int		x;
+	int		y;
+	int		color;
+
+	img_row = 0;
+	if (y0 == 0)
+		img_row = (data->wall_height - data->mlx.win_img.height) / 2;
+	while (y0 < y1)
+	{
+		x = (int)((1 - (data->ray_x - floor(data->ray_x))) * img->width);
+		y = (int)(img_row * img->height / data->wall_height);
+		color = *(int *)(img->addr + (y * img->line_len + x * (img->bpp / 8)));
+		img_pix_put(&data->mlx.win_img, data->ray_count, y0, color);
+		y0++;
+		img_row++;
+	}
+}
+
+static void	draw_east_texture(t_data *data, t_img *img, int y0, int y1)
+{
+	int		img_row;
+	int		x;
+	int		y;
+	int		color;
+
+	img_row = 0;
+	if (y0 == 0)
+		img_row = (data->wall_height - data->mlx.win_img.height) / 2;
+	while (y0 < y1)
+	{
+		x = (int)(((data->ray_y - floor(data->ray_y))) * img->width);
+		y = (int)(img_row * img->height / data->wall_height);
+		color = *(int *)(img->addr + (y * img->line_len + x * (img->bpp / 8)));
+		img_pix_put(&data->mlx.win_img, data->ray_count, y0, color);
+		y0++;
+		img_row++;
+	}
+}
+
+static void	draw_west_texture(t_data *data, t_img *img, int y0, int y1)
 {
 	int		img_row;
 	int		x;
@@ -66,8 +108,12 @@ void	draw_texture(t_data *data, int y0, int y1)
 		img = data->mlx.south_img;
 	else if (data->sky_direction == WEST)
 		img = data->mlx.west_img;
-	if (data->sky_direction == NORTH || data->sky_direction == SOUTH)
-		draw_north_south_texture(data, &img, y0, y1);
-	else
-		draw_east_west_texture(data, &img, y0, y1);
+	if (data->sky_direction == NORTH)
+		draw_north_texture(data, &img, y0, y1);
+	else if (data->sky_direction == SOUTH)
+		draw_south_texture(data, &img, y0, y1);
+	else if (data->sky_direction == EAST)
+		draw_east_texture(data, &img, y0, y1);
+	else if (data->sky_direction == WEST)
+		draw_west_texture(data, &img, y0, y1);
 }

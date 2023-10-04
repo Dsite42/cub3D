@@ -1,7 +1,7 @@
 NO ./textures/Dsite42_800x800.xpm
-SO ./textures/arafa-spider.xpm
-WE ./textures/brick_2.xpm
-EA ./textures/stonewall000.xpm
+WE ./textures/Dsite42_800x800.xpm
+SO ./textures/Dsite42_800x800.xpm
+EA ./textures/Dsite42_800x800.xpm
 
 F 220,100,0
 C 225,30,0
