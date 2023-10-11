@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_image.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 13:04:10 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/26 09:16:59 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/05 17:19:56 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

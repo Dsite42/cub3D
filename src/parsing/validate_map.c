@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 13:04:13 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/26 09:17:02 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/11 14:17:48 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ static void	ft_check_map_tile_1(t_data *data, char tile, int line, int column)
 {
 	if (!ft_strchr("10NSEW#", tile))
 		ft_free_data_print_exit(data, "Error\nInvalid map tile\n");
+	if (ft_strchr(" ", tile))
+		ft_free_data_print_exit(data, "Error\nSpaces inside reachable map\n");
 	if (ft_strchr("NSEW", tile))
 	{
 		if (data->p_spawn >= 1)

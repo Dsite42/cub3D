@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_element.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 13:04:06 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/26 11:09:26 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/11 14:08:44 by ankinzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	ft_handle_element(t_data *data, char *line)
 	while (data->generic && data->generic[i])
 		i++;
 	if (i != 2)
-		ft_free_data_print_exit(data, "Error\nSomething is wrong\n");
+		ft_free_data_print_exit(data, "Error\nInvalid spaces in Map file\n");
 	i = 0;
 	while (data->elements[i]
 		&& !ft_abs_compare(data->generic[0], data->elements[i]))
