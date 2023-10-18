@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+         #
+#    By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/18 15:39:27 by cgodecke          #+#    #+#              #
-#    Updated: 2023/10/18 14:01:03 by ankinzin         ###   ########.fr        #
+#    Updated: 2023/10/18 16:47:59 by cgodecke         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
