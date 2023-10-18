@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 10:45:15 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/10/04 09:28:15 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/18 16:21:43 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,6 @@ static int	is_wall(t_data *data, double step_factor, double player_angle)
 	if (y - floorf(y) < 0.001)
 		y = data->player_y
 			- sin(deg_to_rad(player_angle)) * step_factor * 1.0001;
-	//printf("player_angle:%f\n", player_angle);
-	//printf("x - floor(x) == 0:%i    x - floor(x):%f\n", x - floorf(x) < 0.001, x - floorf(x));
-	//printf("is_wall:: x:%f y:%f wall:%i\n", x, y, data->map_flood[(int)(floor(y))][(int)(floor(x))] - 48);
 	wall = data->map_flood[(int)(floorf(y))][(int)(floorf(x))] - 48;
 	return (wall);
 }

@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 10:47:18 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/10/04 11:30:49 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/18 16:18:20 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	render_rays(t_data *data)
 	int		j;
 
 	data->ray_count = 0;
-	data->ray_angle = (int)(data->player_angle + data->half_FOV) % 360;
+	data->ray_angle = (int)(data->player_angle + data->half_fov) % 360;
 	while (data->ray_count < data->mlx.win_img.width)
 	{
 		i = 0;

@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 15:28:30 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/10/18 16:06:48 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/18 16:21:17 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,3 @@ int	ft_real_size(char *str)
 	}
 	return (size);
 }
-
