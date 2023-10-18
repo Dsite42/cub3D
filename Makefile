@@ -6,12 +6,12 @@
 #    By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/18 15:39:27 by cgodecke          #+#    #+#              #
-#    Updated: 2023/10/04 14:09:57 by ankinzin         ###   ########.fr        #
+#    Updated: 2023/10/18 14:01:03 by ankinzin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CC_FLAGS = -Wall -Wextra -g -fsanitize=address #-Werror
+CC_FLAGS = -Wall -Wextra -g -Werror #-fsanitize=address
 OBJDIR = obj
 HEADER := includes/cub3D.h
 LIBFTDIR := includes/libft

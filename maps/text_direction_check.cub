@@ -1,16 +1,14 @@
-NO ./textures/Dsite42_800x800.xpm
-WE ./textures/Dsite42_800x800.xpm
-SO ./textures/Dsite42_800x800.xpm
-EA ./textures/Dsite42_800x800.xpm
+EA ./textures/monalisa.xpm
+WE ./textures/stonewall000.xpm
+SO ./textures/brick_2.xpm
+NO ./textures/arafa-spider.xpm
 
-F 0,0,0
-C 100,100,100
+F 128,128,128
+C 0,0,0
 
-1111111111
-1001000001
-1000001001
-1001000011
-1000000001
-10N0001001
-1000000001
-1111111111
+1111111
+1000001
+1000001
+1000001
+10000N1
+1111111
