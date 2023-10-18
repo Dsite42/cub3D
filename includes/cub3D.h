@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ankinzin <ankinzin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:30:40 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/10/04 14:06:09 by ankinzin         ###   ########.fr       */
+/*   Updated: 2023/10/18 16:06:57 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,9 +162,8 @@ bool	ft_reach_map(char *str);
 bool	ft_element_done(int *table);
 char	*ft_first_last_line(char *line, int size);
 
-// --> general_2.c
+// --> general_1.c
 int		ft_real_size(char *str);
-void	ft_print_map(char **map);
 
 // --> init_1.c
 void	init_data_pointers(t_data *data);

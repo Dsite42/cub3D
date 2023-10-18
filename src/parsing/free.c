@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:58:42 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/26 09:08:55 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/18 15:53:53 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ static void	ft_free_data_print_exit_1(t_data *data)
 
 void	ft_free_data_print_exit(t_data *data, char *msg)
 {
+	msg = NULL;
 	if (data->no_path)
 		free(data->no_path);
 	if (data->so_path)
@@ -56,7 +57,6 @@ void	ft_free_data_print_exit(t_data *data, char *msg)
 	ft_free_data_print_exit_1(data);
 	if (data->line)
 		free (data->line);
-	ft_putstr_fd(msg, STDERR_FILENO);
 	exit (1);
 }
 

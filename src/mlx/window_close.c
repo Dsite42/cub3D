@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 10:37:13 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/09/26 09:36:17 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/18 15:54:22 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	window_close(t_data *data, int error_code)
 		mlx_destroy_display(data->mlx.mlx_ptr);
 		free(data->mlx.mlx_ptr);
 	}
+
+	ft_free_data_print_exit(data, NULL);
 	if (error_code != 0)
 		exit(error_code);
 	exit (0);

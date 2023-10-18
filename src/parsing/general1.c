@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 15:28:30 by ankinzin          #+#    #+#             */
-/*   Updated: 2023/09/26 09:16:45 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/18 16:06:48 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,3 @@ int	ft_real_size(char *str)
 	return (size);
 }
 
-void	ft_print_map(char **map)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (map[i])
-	{
-		j = 0;
-		while (map[i][j])
-			write (STDOUT_FILENO, &map[i][j++], 1);
-		write (STDOUT_FILENO, "\n", 1);
-		i++;
-	}
-	write (STDOUT_FILENO, "\n", 1);
-}
