@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:29:03 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/10/18 16:29:23 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/21 13:02:48 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ void	zero_struct_data(t_data *data)
 	data->mlx.east_img = (t_img){NULL, NULL, 0, 0, 0, 0, 0};
 	data->mlx.south_img = (t_img){NULL, NULL, 0, 0, 0, 0, 0};
 	data->mlx.west_img = (t_img){NULL, NULL, 0, 0, 0, 0, 0};
-	data->map_rows = 10;
-	data->map_columns = 10;
 	data->mlx.win_img.width = 1280;
 	data->mlx.win_img.height = 960;
 	data->fov = 60;

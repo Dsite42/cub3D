@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:30:40 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/10/18 16:29:05 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/21 13:02:41 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,6 @@ typedef struct s_mlx
 
 typedef struct s_data
 {
-	int				map_columns;
-	int				map_rows;
 	t_mlx			mlx;
 	double			fov;
 	double			half_fov;
