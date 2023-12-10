@@ -2,7 +2,7 @@
 This project is inspired by the world-famous eponymous 90's game Wolfenstein 3D, which was the first FPS ever.
 
 It is based in C programming and utilizing the MiniLibX library, is a detailed exercise in creating a 3D maze using ray-casting.
-This technical project demands understanding of ray-casting principles, efficient use of the mlx library for graphics, handling keyboard and mouse events for navigation, and texture mapping for wall surfaces.
+This technical project demands understanding of ray-casting principles, efficient use of the minilibx library for graphics, handling keyboard and mouse events for navigation, and texture mapping for wall surfaces.
 It involves direct manipulation of images, pixel-level operations, and managing a window using mlx functions.
 Additionally, it requires parsing configuration, map, and texture files, integrating these aspects to achieve a functional, visually accurate 3D environment.
 
